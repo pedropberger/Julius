@@ -2,18 +2,18 @@
 
 ##testing commit
 
-##Test2
+##Try in collab
 
 
 
-import _thread
-import threading
-import logging
-import csv
+#import _thread
+#import threading
+#import logging
+#import csv
 import requests
 import json
-from unicodedata import normalize
-from bs4 import BeautifulSoup
+#from unicodedata import normalize
+#from bs4 import BeautifulSoup
 
 
 # def getDados(cidade, linkAPI, poder):
