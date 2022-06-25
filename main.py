@@ -1,9 +1,9 @@
 ##### All starts here
 
-import json
-import requests
-import xmltodict
-import pandas as pd
+#import json
+#import requests
+#import xmltodict
+#import pandas as pd
 from Extract.data import Data
 
 def main():
