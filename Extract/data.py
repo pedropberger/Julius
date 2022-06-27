@@ -1,13 +1,13 @@
 #import json
 from typing_extensions import Self
 from numpy import extract
+import py
 import requests
 import pandas as pd
 import os
 import sqlite3
 
 class Data():
-
 
     def extract():
         """This function extract the xml files from the Transparency Portals.
@@ -23,10 +23,7 @@ class Data():
         dflicitacoes=pd.DataFrame(pd.read_json((res.text).replace('<?xml version="1.0" encoding="utf-8"?>','').replace('<string xmlns="http://tempuri.org/">', '').removesuffix('</string>')))
         
         print('Dataframe created!')
-
-        """Create the Databases to store the data from portals"""
         
-        ##########>>>>> Remove and run the table directly in the Database
         os.remove("C:\TempData\licitacoes.db") if os.path.exists("C:\TempData\licitacoes.db") else None
 
         conn = sqlite3.connect('C:\TempData\licitacoes.db')

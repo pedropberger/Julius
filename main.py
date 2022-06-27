@@ -10,6 +10,5 @@ def main():
     print("Partiu!")
     Data.extract()
 
-
 if __name__ == "__main__":
     main()
