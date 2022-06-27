@@ -29,9 +29,7 @@ class Data():
         conn = sqlite3.connect('C:\TempData\licitacoes.db')
 
         type(conn)
-
         cur = conn.cursor()
-
         type(cur)
 
         sql_create = 'create table licitacoes '\
@@ -54,7 +52,6 @@ class Data():
         print('Database Created!')
 
         dflicitacoes.to_sql('licitacoes', conn, if_exists='replace', index = False)
-
         print('Data loaded to sql!')
 
         cur.execute('''  
