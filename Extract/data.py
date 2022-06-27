@@ -1,4 +1,5 @@
 #import json
+from distutils.command.config import config
 from typing_extensions import Self
 from numpy import extract
 import py
@@ -6,32 +7,31 @@ import requests
 import pandas as pd
 import os
 import sqlite3
+import datetime
+
+#executando configurações
+exec(open("config.py").read())
 
 class Data():
 
     def extract():
         """This function extract the xml files from the Transparency Portals.
         Usually they come in json format, but in some cases they come in xml with an embedded json.
-        After extraction they are converted into tables and storage in a Data Structurated Database for posterior analysis."""
+        After extraction they are converted into tables and storage in a Data Structurated Database for posterior analysis.
+        Normal order: Create DB -> Open Connection -> Run API -> Create DataFrame -> Save in DB"""
 
-        res = requests.get('https://santamariadejetiba-es.portaltp.com.br/api/transparencia.asmx/json_licitacoes?ano=2022&mes=1')
+        #Cleaning old DB
+        os.remove("C:\TempData\Julius.db") if os.path.exists("C:\TempData\Julius.db") else None
+        #os.remove("C:\TempData\licitacoes.db") if os.path.exists("C:\TempData\licitacoes.db") else None
 
-        """this line bellow can be used if u want extract and work with a Json file."""
-        #jsonfile=(res.text).replace('<?xml version="1.0" encoding="utf-8"?>','').replace('<string xmlns="http://tempuri.org/">', '').removesuffix('</string>')
-
-        #Extract -> convert xlm to Json -> read JSon as a table -> convert table in Dataframe
-        dflicitacoes=pd.DataFrame(pd.read_json((res.text).replace('<?xml version="1.0" encoding="utf-8"?>','').replace('<string xmlns="http://tempuri.org/">', '').removesuffix('</string>')))
-        
-        print('Dataframe created!')
-        
-        os.remove("C:\TempData\licitacoes.db") if os.path.exists("C:\TempData\licitacoes.db") else None
-
-        conn = sqlite3.connect('C:\TempData\licitacoes.db')
-
+        #Start connection and cursor setup
+        conn = sqlite3.connect('C:\TempData\Julius.db')
         type(conn)
         cur = conn.cursor()
         type(cur)
+        print('Database Connected!')
 
+        #Create table --- In the future we need to transfer that for a DB application
         sql_create = 'create table licitacoes '\
         '(ano	decimal(4), '\
         'mes	nvarchar(20), '\
@@ -51,17 +51,33 @@ class Data():
 
         print('Database Created!')
 
-        dflicitacoes.to_sql('licitacoes', conn, if_exists='replace', index = False)
-        print('Data loaded to sql!')
+        for ano in range(initialdate.year, finaldate.year):
+            res = requests.get('https://santamariadejetiba-es.portaltp.com.br/api/transparencia.asmx/json_licitacoes?ano='+str(ano)+'&mes=1')
 
-        cur.execute('''  
-        SELECT * FROM licitacoes
-                  ''')
+            """this line bellow can be used if u want extract and work with a Json file:
+            jsonfile=(res.text).replace('<?xml version="1.0" encoding="utf-8"?>','').replace('<string xmlns="http://tempuri.org/">', '').removesuffix('</string>')"""
 
-        for row in cur.fetchall():
-            print(row)
+            #Extract -> convert xlm to Json -> read JSon as a table -> convert table in Dataframe
+            dflicitacoes=pd.DataFrame(pd.read_json((res.text).replace('<?xml version="1.0" encoding="utf-8"?>','').\
+                replace('<string xmlns="http://tempuri.org/">', '').removesuffix('</string>')))
+            print('Dataframe created!')
+            
+            #Update (load) table to DB
+            tablename = ('licitacoes' + str(ano))
 
-        print('Database Stored')
+            dflicitacoes.to_sql(tablename, conn, if_exists='replace', index = False)
+            print('Data loaded to sql!')
 
+        #Test Code
+        #cur.execute('''  
+        #SELECT * FROM licitacoes
+        #          ''')
+        #for row in cur.fetchall():
+        #    print(row)
+
+        print('Database Stored!')
+
+        #Close connection
         conn.close()
+
         return print('End Database Process')
