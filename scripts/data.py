@@ -73,15 +73,18 @@ class Data():
                     print('Dataframe created!')
 
                     """Create table in DB"""
-                    tablename = ('licitacoes' + str(mun))
+                    #tablename = ('licitacoes' + str(city))
+                    tablename = ('licitacoes')
+
+                    dflicitacoes['Municipio'] = str(mun)
 
                     """Check empty values and store (load) table in DB"""
                     if dflicitacoes.empty:
-                        print('Data ' + 'licitacoes' + str(mun) + ' ' + str(ano) + "/" + str(mes) + ' is empty!')
+                        print('Data ' + 'licitacoes ' + str(mun) + ' ' + str(ano) + "/" + str(mes) + ' is empty!')
                     else:
-                        dflicitacoes.to_sql(tablename, conn, if_exists='append', index = mun)
+                        dflicitacoes.to_sql(tablename, conn, if_exists='append')
                         #dflicitacoes=pd.concat([dflicitacoes, dflicitacoesaux])
-                        print('Data ' + 'licitacoes' + str(mun) + ' ' + str(ano) + "/" + str(mes) + ' appended')
+                        print('Data ' + 'licitacoes ' + str(mun) + ' ' + str(ano) + "/" + str(mes) + ' appended')
 
         # print(dflicitacoesaux)
         # print(dflicitacoes)
