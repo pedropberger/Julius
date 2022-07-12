@@ -5,7 +5,9 @@
 #import xmltodict
 #import pandas as pd
 from distutils.command.config import config
-from Extract.data import Data
+import py
+from scripts.data import Data
+
 
 # import sys
 # for path in sys.path:

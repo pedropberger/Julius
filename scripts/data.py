@@ -12,15 +12,12 @@ import datetime
 #Loading configs
 initialdate = []
 finaldate = []
+portaltp_executivo=[]
+exec(open("scripts/API_organization.py").read())
 exec(open("config.py").read())
+local_apilist = 'data/lista_apis.csv'
 
 class Data():
-
-    def API_definition():
-        """Read the website creator and define new tables for each different API.
-        This process is necessary because every API may have a diferent approach to extract your data
-        the extract function will create diferent databases for each API, and the future integration will be done in SQL"""
-
 
     def extract():
         """This function extract the xml files from the Transparency Portals.
@@ -54,35 +51,37 @@ class Data():
         # 'situacao	nvarchar(20), '\
         # 'valor_homologado	decimal(10,2))'
 
-        #Create dataframe
+        """Create dataframe"""
         #dflicitacoes = pd.DataFrame(columns= ('ano', 'mes', 'tipo_processo', 'unidade_gestora', 'modalidade', 'licitacao', 'processo', 'objeto', 'abertura', 'homologacao', 'conclusao', 'situacao', 'valor_homologado'))
-
         #cur.execute(sql_create)
 
         print('Database Created!')
 
         for ano in range(initialdate.year, (finaldate.year-2)):
             for mes in range(1,13):
-                res = requests.get('https://santamariadejetiba-es.portaltp.com.br/api/transparencia.asmx/json_licitacoes?ano='+str(ano)+'&mes='+str(mes))
+                for index, row in portaltp_executivo.iterrows():
+                    link = row["Link"]
+                    mun = row["Municipio"]
+                    res = requests.get(str(link)+'api/transparencia.asmx/json_licitacoes?ano='+str(ano)+'&mes='+str(mes))
 
-                """this line bellow can be used if u want extract and work with a Json file:
-                jsonfile=(res.text).replace('<?xml version="1.0" encoding="utf-8"?>','').replace('<string xmlns="http://tempuri.org/">', '').removesuffix('</string>')"""
+                    """this line bellow can be used if u want extract and work with a Json file:"""
+                    #jsonfile=(res.text).replace('<?xml version="1.0" encoding="utf-8"?>','').replace('<string xmlns="http://tempuri.org/">', '').removesuffix('</string>')
 
-                #Extract -> convert xlm to Json -> read JSon as a table -> convert table in Dataframe
-                dflicitacoes=pd.DataFrame(pd.read_json((res.text).replace('<?xml version="1.0" encoding="utf-8"?>','').\
-                    replace('<string xmlns="http://tempuri.org/">', '').removesuffix('</string>')))
-                print('Dataframe created!')
+                    """Extract -> convert xlm to Json -> read JSon as a table -> convert table in Dataframe"""
+                    dflicitacoes=pd.DataFrame(pd.read_json((res.text).replace('<?xml version="1.0" encoding="utf-8"?>','').\
+                        replace('<string xmlns="http://tempuri.org/">', '').removesuffix('</string>')))
+                    print('Dataframe created!')
 
-                #Create table in DB
-                tablename = ('licitacoes' + 'SMJ')
+                    """Create table in DB"""
+                    tablename = ('licitacoes' + str(mun))
 
-                #Check empty values and store (load) table in DB
-                if dflicitacoes.empty:
-                    print('Data ' + 'licitacoes' + str(ano) + "/" + str(mes) + ' is empty!')
-                else:
-                    dflicitacoes.to_sql(tablename, conn, if_exists='append', index = False)
-                    #dflicitacoes=pd.concat([dflicitacoes, dflicitacoesaux])
-                    print('Data ' + 'licitacoes' + str(ano) + "/" + str(mes) + ' appended')
+                    """Check empty values and store (load) table in DB"""
+                    if dflicitacoes.empty:
+                        print('Data ' + 'licitacoes' + str(mun) + ' ' + str(ano) + "/" + str(mes) + ' is empty!')
+                    else:
+                        dflicitacoes.to_sql(tablename, conn, if_exists='append', index = mun)
+                        #dflicitacoes=pd.concat([dflicitacoes, dflicitacoesaux])
+                        print('Data ' + 'licitacoes' + str(mun) + ' ' + str(ano) + "/" + str(mes) + ' appended')
 
         # print(dflicitacoesaux)
         # print(dflicitacoes)
@@ -98,7 +97,7 @@ class Data():
 
         print('Database Stored!')
 
-        #Close connection
+        """Close connection"""
         conn.close()
 
         return print('End Database Process')
