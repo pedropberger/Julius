@@ -8,7 +8,9 @@ import pandas as pd
 """Configs"""
 
 local_apilist = 'data/lista_apis.csv'
+local_metlist = 'data/APImethods.csv'
 apilist = pd.read_csv(local_apilist)
+metlist = pd.read_csv(local_metlist)
 
 """Portaltp - Executivo"""
 
@@ -34,3 +36,5 @@ portaltp_legislativo = portaltp_legislativo.rename(columns={'Link_Legislativo':'
 
 print('API_organization Loaded!')
 
+
+"""Methods for all itens in Portal"""

@@ -3,7 +3,7 @@
 import pandas as pd
 import requests
 
-local_apilist = 'data/lista_apis.csv'
+""" local_apilist = 'data/lista_apis.csv'
 
 apilist = pd.read_csv(local_apilist)
 print(apilist)
@@ -15,7 +15,16 @@ del portaltp_executivo["Unnamed: 5"]
 del portaltp_executivo["API_Executivo"]
 portaltp_executivo.rename(columns={'Link_Executivo':'Link'}, inplace=True)
 
-print(portaltp_executivo)
+print(portaltp_executivo) """
+
+
+itens = 'data/APImethods.txt'
+with open(itens) as file:
+    lines = file.readlines()
+    lines = [line.rstrip() for line in lines]
+
+for i in lines:
+    print(lines)
 
 
 
