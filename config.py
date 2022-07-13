@@ -14,6 +14,8 @@ print('Data final de busca: ' + str(finaldate))
 
 local_apilist = 'data/lista_apis.csv'
 
+
+
 """Database Configs"""
 
 mysql = {
