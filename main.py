@@ -30,7 +30,7 @@ def main():
         print("Partiu!")
         Data.extract()
     else:
-        print("Bora fast")
+        print("Bora fast!")
         Data.dbclean()
         conn = Data.dbstart()
         Data.licitacoes(conn)
