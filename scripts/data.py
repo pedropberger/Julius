@@ -119,3 +119,11 @@ class Data():
         conn.close()
 
         return print('End Database Process')
+
+    def cleanDB():
+        """Cleaning old DB"""
+        os.remove("C:\TempData\Julius.db") if os.path.exists("C:\TempData\Julius.db") else None
+
+
+    def licitacoes():
+        pass
