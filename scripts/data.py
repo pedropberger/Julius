@@ -21,7 +21,7 @@ exec(open("config.py").read())
 
 class Data():
 
-    def extract():
+    def extractall():
         """This function extract the xml files from the Transparency Portals.
         Usually they come in json format, but in some cases they come in xml with an embedded json.
         After extraction they are converted into tables and storage in a Data Structurated Database for posterior analysis.
