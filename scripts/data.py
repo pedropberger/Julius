@@ -143,13 +143,14 @@ class Data():
     def licitacoes(conn):
         """Extract licitacoes"""
 
+        item = ("licitacoes")
         for ano in range(initialdate.year, (finaldate.year-2)):
             #for mes in range(1,13):
             for mes in range(1,2):
                 for index, row in portaltp_executivo.iterrows():
                     link = row["Link"]
                     mun = row["Municipio"]
-                    item = ("licitacoes")
+
                     res = requests.get(str(link)+'api/transparencia.asmx/json_'+str(item)+'?ano='+str(ano)+'&mes='+str(mes))
 
                     """this line bellow can be used if u want extract and work with a Json file:"""
@@ -184,6 +185,146 @@ class Data():
                             print('Data ' + str(item) + ' ' + str(mun) + ' ' + str(ano) + "/" + str(mes) + ' appended')
                     except:
                         print('Problem in ' + str(item) + ' ' + str(mun) + ' ' + str(ano) + "/" + str(mes))
+        return print('All ' + str(item) + ' extracted!')
 
+    def contratos(conn):
+        """Extract contratos"""
 
-        pass
+        item = ("contratos")
+        for ano in range(initialdate.year, (finaldate.year-2)):
+            #for mes in range(1,13):
+            for mes in range(1,2):
+                for index, row in portaltp_executivo.iterrows():
+                    link = row["Link"]
+                    mun = row["Municipio"]
+
+                    res = requests.get(str(link)+'api/transparencia.asmx/json_'+str(item)+'?ano='+str(ano)+'&mes='+str(mes))
+
+                    """this line bellow can be used if u want extract and work with a Json file:"""
+                    #jsonfile=(res.text).replace('<?xml version="1.0" encoding="utf-8"?>','').replace('<string xmlns="http://tempuri.org/">', '').removesuffix('</string>')
+
+                    """This try is necessary to don't stop the run if the API is off or another problems"""
+                        
+                    try:
+                        """Extract -> convert xlm to Json -> read JSon as a table -> convert table in Dataframe"""
+
+                        dflicitacoes=pd.DataFrame(pd.read_json((res.text).replace('<?xml version="1.0" encoding="utf-8"?>','').\
+                            replace('<string xmlns="http://tempuri.org/">', '').removesuffix('</string>')))
+                        print('Dataframe created!')
+
+                        """Create table in DB"""
+
+                        #tablename = ('licitacoes' + str(city))
+                        tablename = str(item)
+
+                        """Create a column that create key to improve the future search in DB"""
+
+                        dflicitacoes['Municipio'] = str(mun)
+                        dflicitacoes['Chave'] = (str(item) + "_" + str(mun) + "_" + str(ano) + "_" + str(mes))
+
+                        """Check empty values and store (load) table in DB"""
+
+                        if dflicitacoes.empty:
+                            print('Data ' + str(item) + ' ' + str(mun) + ' ' + str(ano) + "/" + str(mes) + ' is empty!')
+                        else:
+                            dflicitacoes.to_sql(tablename, conn, if_exists='append')
+                            #dflicitacoes=pd.concat([dflicitacoes, dflicitacoesaux])
+                            print('Data ' + str(item) + ' ' + str(mun) + ' ' + str(ano) + "/" + str(mes) + ' appended')
+                    except:
+                        print('Problem in ' + str(item) + ' ' + str(mun) + ' ' + str(ano) + "/" + str(mes))
+        return print('All ' + str(item) + ' extracted!')
+
+    def atas(conn):
+        """Extract atas"""
+
+        item = ("atas")
+        for ano in range(initialdate.year, (finaldate.year-2)):
+            #for mes in range(1,13):
+            for mes in range(1,2):
+                for index, row in portaltp_executivo.iterrows():
+                    link = row["Link"]
+                    mun = row["Municipio"]
+
+                    res = requests.get(str(link)+'api/transparencia.asmx/json_'+str(item)+'?ano='+str(ano)+'&mes='+str(mes))
+
+                    """this line bellow can be used if u want extract and work with a Json file:"""
+                    #jsonfile=(res.text).replace('<?xml version="1.0" encoding="utf-8"?>','').replace('<string xmlns="http://tempuri.org/">', '').removesuffix('</string>')
+
+                    """This try is necessary to don't stop the run if the API is off or another problems"""
+                        
+                    try:
+                        """Extract -> convert xlm to Json -> read JSon as a table -> convert table in Dataframe"""
+
+                        dflicitacoes=pd.DataFrame(pd.read_json((res.text).replace('<?xml version="1.0" encoding="utf-8"?>','').\
+                            replace('<string xmlns="http://tempuri.org/">', '').removesuffix('</string>')))
+                        print('Dataframe created!')
+
+                        """Create table in DB"""
+
+                        #tablename = ('licitacoes' + str(city))
+                        tablename = str(item)
+
+                        """Create a column that create key to improve the future search in DB"""
+
+                        dflicitacoes['Municipio'] = str(mun)
+                        dflicitacoes['Chave'] = (str(item) + "_" + str(mun) + "_" + str(ano) + "_" + str(mes))
+
+                        """Check empty values and store (load) table in DB"""
+
+                        if dflicitacoes.empty:
+                            print('Data ' + str(item) + ' ' + str(mun) + ' ' + str(ano) + "/" + str(mes) + ' is empty!')
+                        else:
+                            dflicitacoes.to_sql(tablename, conn, if_exists='append')
+                            #dflicitacoes=pd.concat([dflicitacoes, dflicitacoesaux])
+                            print('Data ' + str(item) + ' ' + str(mun) + ' ' + str(ano) + "/" + str(mes) + ' appended')
+                    except:
+                        print('Problem in ' + str(item) + ' ' + str(mun) + ' ' + str(ano) + "/" + str(mes))
+        return print('All ' + str(item) + ' extracted!')
+
+    def ordemcompras(conn):
+        """Extract ordemcompras"""
+
+        item = ("ordemcompras")
+        for ano in range(initialdate.year, (finaldate.year-2)):
+            #for mes in range(1,13):
+            for mes in range(1,2):
+                for index, row in portaltp_executivo.iterrows():
+                    link = row["Link"]
+                    mun = row["Municipio"]
+
+                    res = requests.get(str(link)+'api/transparencia.asmx/json_'+str(item)+'?ano='+str(ano)+'&mes='+str(mes))
+
+                    """this line bellow can be used if u want extract and work with a Json file:"""
+                    #jsonfile=(res.text).replace('<?xml version="1.0" encoding="utf-8"?>','').replace('<string xmlns="http://tempuri.org/">', '').removesuffix('</string>')
+
+                    """This try is necessary to don't stop the run if the API is off or another problems"""
+                        
+                    try:
+                        """Extract -> convert xlm to Json -> read JSon as a table -> convert table in Dataframe"""
+
+                        dflicitacoes=pd.DataFrame(pd.read_json((res.text).replace('<?xml version="1.0" encoding="utf-8"?>','').\
+                            replace('<string xmlns="http://tempuri.org/">', '').removesuffix('</string>')))
+                        print('Dataframe created!')
+
+                        """Create table in DB"""
+
+                        #tablename = ('licitacoes' + str(city))
+                        tablename = str(item)
+
+                        """Create a column that create key to improve the future search in DB"""
+
+                        dflicitacoes['Municipio'] = str(mun)
+                        dflicitacoes['Chave'] = (str(item) + "_" + str(mun) + "_" + str(ano) + "_" + str(mes))
+
+                        """Check empty values and store (load) table in DB"""
+
+                        if dflicitacoes.empty:
+                            print('Data ' + str(item) + ' ' + str(mun) + ' ' + str(ano) + "/" + str(mes) + ' is empty!')
+                        else:
+                            dflicitacoes.to_sql(tablename, conn, if_exists='append')
+                            #dflicitacoes=pd.concat([dflicitacoes, dflicitacoesaux])
+                            print('Data ' + str(item) + ' ' + str(mun) + ' ' + str(ano) + "/" + str(mes) + ' appended')
+                    except:
+                        print('Problem in ' + str(item) + ' ' + str(mun) + ' ' + str(ano) + "/" + str(mes))
+        return print('All ' + str(item) + ' extracted!')
+      
