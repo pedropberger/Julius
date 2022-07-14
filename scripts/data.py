@@ -27,10 +27,10 @@ class Data():
         After extraction they are converted into tables and storage in a Data Structurated Database for posterior analysis.
         Normal order: Create DB -> Open Connection -> Run API -> Create DataFrame -> Save in DB"""
 
-        #Cleaning old DB
+        """Cleaning old DB"""
         os.remove("C:\TempData\Julius.db") if os.path.exists("C:\TempData\Julius.db") else None
 
-        #Start connection and cursor setup
+        """Start connection and cursor setup"""
         conn = sqlite3.connect('C:\TempData\Julius.db')
         type(conn)
         cur = conn.cursor()
@@ -120,9 +120,29 @@ class Data():
 
         return print('End Database Process')
 
-    def cleanDB():
+    def dbclean():
         """Cleaning old DB"""
+
         os.remove("C:\TempData\Julius.db") if os.path.exists("C:\TempData\Julius.db") else None
+        return print('Database Cleaned!')
+    
+    def dbclose(conn):
+        """Close connection"""
+
+        conn.close()
+
+        return print('Database Closed')
+
+    def dbaijsiaj():
+        """Start connection and cursor setup"""
+
+        conn = sqlite3.connect('C:\TempData\Julius.db')
+        type(conn)
+        cur = conn.cursor()
+        type(cur)
+        print('Conection to Database Created')
+        return conn
+
 
 
     def licitacoes():
