@@ -14,9 +14,11 @@ A full extract consumes 4gb of you hard disk."""
 #import requests
 #import xmltodict
 #import pandas as pd
+from concurrent.futures import thread
 from distutils.command.config import config
 import py
 from scripts.data import Data
+from threading import *
 
 """Select your way
 1 - Full Extract
@@ -28,7 +30,7 @@ def main():
     
     if way == 1:
         print("Partiu!")
-        Data.extract()
+        Data.extractall()
     else:
         print("Bora fast!")
         Data.dbclean()
