@@ -14,7 +14,8 @@ initialdate = []
 finaldate = []
 portaltp_executivo=[]
 metlist = []
-local_apilist =[]
+local_apilist = []
+local_db = []
 exec(open("scripts/API_organization.py").read())
 exec(open("config.py").read())
 
@@ -28,10 +29,10 @@ class DataPortaltp():
         Normal order: Create DB -> Open Connection -> Run API -> Create DataFrame -> Save in DB"""
 
         """Cleaning old DB"""
-        os.remove("C:\TempData\Julius.db") if os.path.exists("C:\TempData\Julius.db") else None
+        os.remove(local_db) if os.path.exists(local_db) else None
 
         """Start connection and cursor setup"""
-        conn = sqlite3.connect('C:\TempData\Julius.db')
+        conn = sqlite3.connect(local_db)
         type(conn)
         cur = conn.cursor()
         type(cur)

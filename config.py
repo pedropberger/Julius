@@ -13,6 +13,7 @@ print('Data final de busca: ' + str(finaldate))
 """Path configs"""
 
 local_apilist = 'data/lista_apis.csv'
+local_db = 'C:\TempData\Julius.db'
 
 
 
