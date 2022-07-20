@@ -30,9 +30,9 @@ Insira a API da sua cidade e colabore para unificar as fontes de dados públicos
 #import requests
 #import xmltodict
 #import pandas as pd
-from concurrent.futures import thread
-from distutils.command.config import config
-import py
+#from concurrent.futures import thread
+#from distutils.command.config import config
+#import py
 from scripts.data import DataPortaltp
 from threading import *
 
