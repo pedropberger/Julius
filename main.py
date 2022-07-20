@@ -33,7 +33,7 @@ Insira a API da sua cidade e colabore para unificar as fontes de dados públicos
 from concurrent.futures import thread
 from distutils.command.config import config
 import py
-from scripts.data import Data
+from scripts.data import DataPortaltp
 from threading import *
 
 """Select your way
@@ -46,13 +46,13 @@ def main():
     
     if way == 1:
         print("Partiu!")
-        Data.extractall()
+        DataPortaltp.extractall()
     else:
         print("Bora fast!")
-        Data.dbclean()
-        conn = Data.dbstart()
-        Data.licitacoes(conn)
-        Data.dbclose(conn)
+        DataPortaltp.dbclean()
+        conn = DataPortaltp.dbstart()
+        DataPortaltp.licitacoes(conn)
+        DataPortaltp.dbclose(conn)
 
 if __name__ == "__main__":
     main()

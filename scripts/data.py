@@ -19,7 +19,7 @@ exec(open("scripts/API_organization.py").read())
 exec(open("config.py").read())
 
 
-class Data():
+class DataPortaltp():
 
     def extractall():
         """This function extract the xml files from the Transparency Portals.
