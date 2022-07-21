@@ -16,7 +16,6 @@ local_apilist = 'data/lista_apis.csv'
 local_db = 'C:\TempData\Julius.db'
 
 
-
 """Database Configs"""
 
 mysql = {
