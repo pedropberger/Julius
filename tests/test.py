@@ -8,7 +8,6 @@ from bs4 import BeautifulSoup
 import scrapy
 
 
-
 # Collect and parse first page
 page = requests.get('https://web.archive.org/web/20121007172955/https://www.nga.gov/collection/anZ1.htm')
 soup = BeautifulSoup(page.text, 'html.parser')
