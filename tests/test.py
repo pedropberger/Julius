@@ -1,8 +1,28 @@
 """Here we test stuff"""
 
+import requests
+import pandas as pd
 
-# Import libraries
+url = 'https://santamariadejetiba-es.portaltp.com.br/consultas/documentos.aspx?id=8'
 
+#pd.read_html(requests.get(<url>).content)[-1].to_csv(<csv file>)
+
+
+html = requests.get(url).content
+
+df_list = pd.read_html(html)
+
+print(df_list)
+
+df = df_list[-1]
+
+print(df)
+
+df = df.iloc[1: , :]
+
+print(df)
+
+# df.to_csv('my data.csv')
 
 
 # class DataPortaltp():
