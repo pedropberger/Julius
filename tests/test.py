@@ -2,28 +2,39 @@
 
 import requests
 import pandas as pd
+from bs4 import BeautifulSoup
 
+url = 'https://santamariadejetiba-es.portaltp.com.br/consultas/documentos.aspx?id=8'
+res = requests.get(url)
+html_page = res.text
+
+soup = BeautifulSoup(html_page, 'html.parser')
+soup.prettify()
+
+
+for link in soup.find_all('a'):
+    print(link.get('href'))
+
+
+
+""" using pandas"""
+
+"""
 url = 'https://santamariadejetiba-es.portaltp.com.br/consultas/documentos.aspx?id=8'
 
 #pd.read_html(requests.get(<url>).content)[-1].to_csv(<csv file>)
 
-
 html = requests.get(url).content
-
 df_list = pd.read_html(html)
-
-print(df_list)
-
+#print(df_list)
 df = df_list[-1]
-
-print(df)
-
+#print(df)
 df = df.iloc[1: , :]
-
 print(df)
 
 # df.to_csv('my data.csv')
 
+"""
 
 # class DataPortaltp():
 
