@@ -38,9 +38,9 @@ from threading import *
 
 """Select your way
 1 - Full Extract
-2 - Multithreading"""
+2 - Multithreading (in implementation)"""
 
-way = 1
+way = 2
 
 def main():
     
