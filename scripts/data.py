@@ -8,6 +8,7 @@ import pandas as pd
 import os
 import sqlite3
 import datetime
+import time
 
 #Loading configs
 initialdate = []
@@ -59,7 +60,7 @@ class DataPortaltp():
         #cur.execute(sql_create)
         #print('Database Created!')
 
-        for ano in range(initialdate.year, (finaldate.year-3)):
+        for ano in range(initialdate.year, (finaldate.year)):
             #for mes in range(1,13):
             for mes in range(1,13):
                 for index, row in portaltp_executivo.iterrows():
