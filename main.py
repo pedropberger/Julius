@@ -40,7 +40,7 @@ from threading import *
 1 - Full Extract
 2 - Multithreading (in implementation)"""
 
-way = 2
+way = 1
 
 def main():
     
