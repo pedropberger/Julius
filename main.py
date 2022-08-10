@@ -35,24 +35,30 @@ Insira a API da sua cidade e colabore para unificar as fontes de dados públicos
 #import py
 from scripts.data import DataPortaltp
 from threading import *
+import time
 
 """Select your way
 1 - Full Extract
 2 - Multithreading (in implementation)"""
 
-way = 1
+way = 2
+start = time.time()
 
 def main():
     
     if way == 1:
         print("Partiu!")
         DataPortaltp.extractall()
+        end = time.time()
+        print('Finished full run in ' + end)
     else:
         print("Bora fast!")
         DataPortaltp.dbclean()
         conn = DataPortaltp.dbstart()
         DataPortaltp.licitacoes(conn)
         DataPortaltp.dbclose(conn)
+        end = time.time()
+        print('Finished selected packages in ' + end)
 
 if __name__ == "__main__":
     main()
