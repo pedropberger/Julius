@@ -11,9 +11,12 @@ html_page = res.text
 soup = BeautifulSoup(html_page, 'html.parser')
 soup.prettify()
 
+site=[]
 
-for link in soup.find_all('a'):
-    print(link.get('href'))
+for link in soup.find_all('a',{"class": "dxbs-hyperlink"}):
+    site.append(link.get('href'))
+
+print(site)
 
 
 
