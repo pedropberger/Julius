@@ -1,6 +1,7 @@
 """Here we test stuff"""
 
 import requests
+import numpy as np
 import pandas as pd
 from bs4 import BeautifulSoup
 
@@ -16,14 +17,12 @@ site=[]
 for link in soup.find_all('a',{"class": "dxbs-hyperlink"}):
     site.append(link.get('href'))
 
+del site[-2:]
 print(site)
-
-
 
 """ using pandas"""
 
-"""
-url = 'https://santamariadejetiba-es.portaltp.com.br/consultas/documentos.aspx?id=8'
+#url = 'https://santamariadejetiba-es.portaltp.com.br/consultas/documentos.aspx?id=8'
 
 #pd.read_html(requests.get(<url>).content)[-1].to_csv(<csv file>)
 
@@ -33,11 +32,16 @@ df_list = pd.read_html(html)
 df = df_list[-1]
 #print(df)
 df = df.iloc[1: , :]
+df = df[:-1]
 print(df)
+
+df['Arquivo'] = np.array(site)
+
+print(df)
+
 
 # df.to_csv('my data.csv')
 
-"""
 
 # class DataPortaltp():
 
