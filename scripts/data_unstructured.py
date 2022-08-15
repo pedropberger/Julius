@@ -25,11 +25,12 @@ url = 'https://santamariadejetiba-es.portaltp.com.br/consultas/documentos.aspx?i
 
 
 def extract_contract_url(url):
-    """Parsing the website and use BeautifulSoup package to replicate the table with the URLs to download the contract files
+    """Fase1: Parsing the website and use BeautifulSoup package to replicate the table with the URLs to download the contract files
+       Fase2: Parsing the website and use Pandas to extract the table with contract information
         Param:
         url: url of the contract website page
     """
-   
+    #Fase1
     res = requests.get(url)
     html_page = res.text
     soup = BeautifulSoup(html_page, 'html.parser')
@@ -38,24 +39,14 @@ def extract_contract_url(url):
     for link in soup.find_all('a',{"class": "dxbs-hyperlink"}):
         urllist.append(link.get('href'))
     del urllist[-2:]
-    return urllist
-
-testvar = extract_contract_url(url)
-
-def extract_contract_table(url):
-    """Parsing the website and use Pandas to extract the table with contract information
-        Param:
-        url: url of the contract website page
-    """
-    html = requests.get(url).content
-    df_list = pd.read_html(html)
+    #Fase2
+    df_list = pd.read_html(res.content)
     df = df_list[-1]
     df = df.iloc[1: , :]
     df = df[:-1]
+    df['Arquivo'] = np.array(urllist)
     return df
 
-testvar2 = extract_contract_table(url)
+lelele = extract_contract_url(url)
 
-testvar2['Arquivo'] = np.array(testvar)
-
-print(testvar2)
+print(lelele)
