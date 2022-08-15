@@ -1,10 +1,12 @@
 """Let's try extract all unstructured data too
 Implementantion order:
+
+0 - Scrap tables and contract's url
 1 - download pdfs
 2 - organize mongoDB
 3 - OCR pdfs
 4 - Elastic Search
-5 - semi struture the data
+5 - Semi struture the data
 6 - Full Portal Scraping/Crawling (not only the first page)
 
 ---------------------------------------
@@ -48,5 +50,4 @@ def extract_contract_url(url):
     return df
 
 lelele = extract_contract_url(url)
-
 print(lelele)
