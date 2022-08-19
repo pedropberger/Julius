@@ -30,6 +30,7 @@ metlist = []
 local_apilist = []
 local_db = []
 url = []
+df2 = []
 exec(open("scripts/API_organization.py").read())
 exec(open("config.py").read())
 
@@ -65,6 +66,8 @@ class DataPortaltp_Unstructured():
             df = df[:-1]
             df['Arquivo'] = np.array(urllist)
             print(df)
+            #df2=pd.concat([df2, df])
+            #print('concated')
 
 DataPortaltp_Unstructured.url_creation()
 
