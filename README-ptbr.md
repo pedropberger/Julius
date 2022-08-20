@@ -35,7 +35,10 @@ Working on it...
 Working on it...
 
 # Como fazer rodar
-Airflow
+O Julius pode rodar em dois formatos:
+1 - Algoritmo completo que executa as funções de pipeline e ETL, focado em aprendizado e teste, pois necessita apenas de um compilador de Python e dos pacotes.
+2 - Códigos separados orquestrados pelo Airflow, facilitando o uso por instituições públicas e ONGs.
+
 
 ## Authors
 
