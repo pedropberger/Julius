@@ -60,9 +60,9 @@ class DataPortaltp():
         #cur.execute(sql_create)
         #print('Database Created!')
 
-        for ano in range(initialdate.year, (finaldate.year-2)):
+        for ano in range(initialdate.year, (finaldate.year)):
             #for mes in range(1,13):
-            for mes in range(1,2):
+            for mes in range(1,13):
                 for index, row in portaltp_executivo.iterrows():
                     for index2, it in metlist.iterrows():
 
