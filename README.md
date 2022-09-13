@@ -10,7 +10,7 @@ Because it is a learning tool and because it uses exclusively public government 
 # How it works
 Working on it...
 
-# Transparency portals FAQ
+# Transparency portals
 Working on it...
 
 # Documentation
