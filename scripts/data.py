@@ -81,6 +81,7 @@ class DataPortaltp():
                             dflicitacoes=pd.DataFrame(pd.read_json((res.text).replace('<?xml version="1.0" encoding="utf-8"?>','').\
                                 replace('<string xmlns="http://tempuri.org/">', '').removesuffix('</string>')))
                             print('Dataframe created!')
+                            
 
                             """Create table in DB"""
                             #tablename = ('licitacoes' + str(city))
@@ -96,7 +97,8 @@ class DataPortaltp():
                             else:
                                 dflicitacoes.to_sql(tablename, conn, if_exists='append')
                                 #dflicitacoes=pd.concat([dflicitacoes, dflicitacoesaux])
-                                print('Data ' + str(item) + ' ' + str(mun) + ' ' + str(ano) + "/" + str(mes) + ' appended')
+                                #print('Data ' + str(item) + ' ' + str(mun) + ' ' + str(ano) + "/" + str(mes) + ' appended')
+                                print('Data {item} {mun} {ano}/{mes} appended'.format(item=str(item), mun=str(mun), ano=str(ano), mes=str(mes)))
                         except:
                             print('Problem in ' + str(item) + ' ' + str(mun) + ' ' + str(ano) + "/" + str(mes))
 
@@ -235,7 +237,7 @@ class DataPortaltp():
                         else:
                             dflicitacoes.to_sql(tablename, conn, if_exists='append')
                             #dflicitacoes=pd.concat([dflicitacoes, dflicitacoesaux])
-                            print('Data ' + str(item) + ' ' + str(mun) + ' ' + str(ano) + "/" + str(mes) + ' appended')
+                            print('Data ' + str(item) + ' ' + str(mun) + ' ' + str(ano) + "/" + str(mes) + ' appended')                           
                     except:
                         print('Problem in ' + str(item) + ' ' + str(mun) + ' ' + str(ano) + "/" + str(mes))
         return print('All ' + str(item) + ' extracted!')
