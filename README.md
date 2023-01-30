@@ -1,4 +1,4 @@
-# Julius - FULL
+# Julius
 Bot that capture data from Transparency Portals of all cityes of the state of Espírito Santo, Brazil. After that, deploy know typologies to find corruption indicators (people with two public jobs, companys selling overpriced stuff, etc)
 
 # About the project
@@ -8,16 +8,12 @@ This project comes from an initiative of the servers of the Innovation Unit of t
 Because it is a learning tool and because it uses exclusively public government data, we decided to restart the project as an open initiative, restarting its development independently from any institution and making the codes available here on Github. The idea is to start from what already works, test, improve, create and refine the codes and functions with Data Engineering techniques, Artificial Intelligence and good development practices. That's also why the Readme and all documentation (even code comments) are in English as the default language, learning English is good for everyone.
 
 # How it works
-Working on it...
 
 # Transparency portals
-Working on it...
 
 # Documentation
-Working on it...
 
 # How to collaborate
-Working on it...
 
 ## Authors
 

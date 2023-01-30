@@ -1,4 +1,4 @@
-# Julius - FULL
+# Julius
 
 Robo que captura os dados dos Portais da Transparência e aplica métricas e tipologias conhecidas para averiguar indicadores de improbidade administrativa (pessoas com dois cargos públicos - além do que é assegurado por lei - contratos e compras com preços elevados, etc) ou práticas ruims de portais.
 
