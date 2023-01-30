@@ -50,7 +50,7 @@ def main():
         print("Partiu!")
         DataPortaltp.extractall()
         end = time.time()
-        print('Finished full run in ' + end)
+        print('Finished full run in ')
     else:
         print("Bora fast!")
         DataPortaltp.dbclean()
