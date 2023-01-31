@@ -16,7 +16,6 @@ import sqlite3
 #from concurrent.futures import thread
 #from distutils.command.config import config
 #import py
-from scripts.data import DataPortaltp
 from threading import *
 import time
 from datetime import date
@@ -33,6 +32,16 @@ TASKS:
 """
 
 start = time.time()
+
+#Loading configs
+initialdate = []
+finaldate = []
+portaltp_executivo=[]
+metlist = []
+local_apilist = []
+local_db = []
+exec(open("scripts/API_organization.py").read())
+exec(open("config.py").read())
 
 """Here are the config files, directories or parameters that can change in all places"""
 
@@ -154,4 +163,4 @@ print('Database Stored!')
 """Close connection"""
 conn.close()
 
-return print('End Database Process')
+print('End Database Process')
