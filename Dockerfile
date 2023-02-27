@@ -1,3 +1,5 @@
+#Docker para rodar a aplicação, ainda trabalhando
+
 # https://hub.docker.com/_/python
 FROM python
 
