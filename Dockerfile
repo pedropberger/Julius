@@ -1,6 +1,8 @@
 # Base image
 FROM python:3.9-slim-buster
 
+#set host
+
 # Set the working directory
 WORKDIR /app
 
