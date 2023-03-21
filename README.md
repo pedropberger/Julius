@@ -34,7 +34,7 @@ The data contained in portals is structured (salary tables, payments to third pa
 
 # How to collaborate
 
-## Authors
+## Collaborators
 
 | [<img src="https://github.com/pedropberger.png?size=115" width=115><br><sub>@pedropberger</sub>](https://github.com/pedropberger) | [<img src="https://github.com/mwildemberg.png?size=115" width=115><br><sub>@mwildemberg</sub>](https://github.com/mwildemberg) |
 | :---: | :---: |
