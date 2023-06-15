@@ -1,5 +1,7 @@
 # Julius
 
+projeto movido para o time mpes-uis
+
 Robot that captures data from Transparency Portals and applies known metrics and typologies to investigate indicators of administrative impropriety (people holding two public positions - beyond what is allowed by law - contracts and purchases with inflated prices, etc.) or poor practices of transparency portals.
 
 # About the Project
