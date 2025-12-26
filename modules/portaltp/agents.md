@@ -61,6 +61,25 @@ Contém a documentação completa dos endpoints disponíveis, incluindo:
   ```
   https://afonsoclaudio-es.portaltp.com.br/api/transparencia.asmx/json_licitacoes?ano=2025&mes=7&extra=False&situacao=
   ```
+
+## Disponibilidade dos Dados
+
+Com base em um piloto executado em 26/12/2025, a disponibilidade dos dados para os municípios de Afonso Cláudio e São Gabriel da Palha é a seguinte:
+
+- **Afonso Cláudio**:
+  - `licitacoes`:
+    - 2024: Dados disponíveis para todos os meses.
+    - 2025: Dados disponíveis para os meses de Janeiro a Novembro.
+  - `contratos`:
+    - 2024: Dados disponíveis.
+    - 2025: Dados disponíveis.
+- **São Gabriel da Palha**:
+  - Nenhum dado encontrado para os endpoints `licitacoes` e `contratos` nos anos de 2024 e 2025.
+
+**Observação:** A ausência de dados para São Gabriel da Palha pode ser devido a:
+- O portal da transparência do município não utilizar os mesmos endpoints que o de Afonso Cláudio.
+- O município não ter publicado dados para os períodos consultados.
+- A URL base no arquivo `prefeituras.csv` pode estar incorreta.
 - **Campos retornados:** ano, mes, tipo_processo, unidade_gestora, modalidade, licitacao, processo, objeto, abertura, homologacao, conclusao, situacao, valor_homologado
 
 #### **Contratos e Aditivos**
