@@ -14,6 +14,8 @@ Because it is a learning tool and exclusively uses public government data, we ch
 
 Julius works as an automation algorithm that captures data from Transparency Portals through their APIs.
 
+The project is organized into modules, where each module represents a company that provides transparency portals. Each module has its own APIs and methods, allowing for a more organized and scalable development.
+
 Each transparency portal has APIs that allow extraction of the data it contains. These APIs refer to data of similar structure, according to the category of what is made available (remuneration, bids, contracts, etc.).
 
 In theory, when all municipalities and government entities reach a "maximum level" of transparency, they will all have similar data being made available, varying according to the type of entity, for example: municipal councils usually do not have revenue and collection structures, public companies have different bidding processes, etc. Based on this principle, the number of APIs and data grows.

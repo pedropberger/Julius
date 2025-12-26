@@ -12,6 +12,8 @@ Por ser ferramenta de aprendizado e por utilizar exclusivamente dados públicos 
 
 Julius funciona como um algoritmo de automação que captura dados dos Portais da Transparência por meio de suas APIs.
 
+O projeto está organizado em módulos, onde cada módulo representa uma empresa fornecedora de portais de transparência. Cada módulo possui suas próprias APIs e métodos, permitindo um desenvolvimento mais organizado e escalável.
+
 Cada portal da transparência possui API's possibilitando a extração dos dados nele contidos. Essas API's remetem a dados de estrutura semelhante, de acordo com a categoria do que é dispobilizado (remuneração, licitações, contratos, etc).
 
 Em tese, quando todos municípios e entidades governamentais atingirem um "nível máximo" de transparência, todos terão dados similares sendo disponibilizados, variando conforme o tipo de entidade, por exemplo: Câmaras municipais usualmente não possuem estrutura de receitas e arrecadação, empresas públicas tem processos licitatórios diferenciados, etc). Partindo desse princípio que a quantidade de APIs e dados cresce. 
