@@ -1,0 +1,1209 @@
+Listagem de Métodos da API
+
+Compras
+Dispõe dos processos licitatórios e dispensados de licitação, contratos e aditivos firmados, fornecimentos e documentos firmados pela Administração Pública.
+
+Licitações
+É o processo administrativo formal pelo qual a empresa estatal contrata serviços ou adquire produtos destinados à sua manutenção e expansão. Este ato é regimentado pela Lei de Licitações, ou Lei Nº13.303/16 que regulamenta o art. 37, inciso XXI, da Constituição Federal e institui normas para licitações e contratos da Administração Pública e dá outras providências..
+Para mais informações de Licitações clique aqui.
+Ano: Mês: Formato:  
+
+ 
+
+ACESSO AOS DADOS
+
+Para acessar os dados da API, clique aqui ou copie e cole este endereço em seu navegador: saogabrieldapalha-es.portaltp.com.br/api/transparencia.asmx/json_licitacoes?ano=2025&mes=12&extra=False&situacao=.
+
+ 
+
+EXPORTAR DADOS
+
+Ano 
+
+ 
+Mês 
+
+ 
+Mostrar Vencedores 
+
+ 
+Situação 
+
+ 
+Formato 
+
+ 
+PARÂMETROS
+
+Obrigatórios
+
+Nome	Tipo	Descrição
+ano	texto	Ano do exercício a ser consultado.
+mes	texto	Mês do exercício a ser consultado.
+ 
+
+RETORNO
+
+Campos
+
+Nome	Tipo	Descrição
+ano	texto	Ano da ocorência.
+mes	texto	Mês da ocorência.
+tipo_processo	texto	Descrição do tipo do tipo de processo de licitação.
+unidade_gestora	texto	Nome da unidade gestora que gerou a licitação.
+modalidade	texto	Descrição do tipo de modalidade da licitação.
+licitacao	texto	Número da licitação
+processo	texto	Número do processo da licitação
+objeto	texto	Descrição do objeto da licitação.
+abertura	data	Data da abertura da licitação.
+homologacao	data	Homologação da licitação.
+conclusao	data	Data em que foi concluída a licitação.
+situacao	texto	Fase em que se encontra o processo de licitação.
+valor_homologado	numérico	Valor homologado para o processo de licitação.
+SAÍDA
+
+[
+  {
+    "ano": "2025",
+    "mes": "12 - Dezembro",
+    "tipo_processo": "Licitacao",
+    "unidade_gestora": "FUNDO MUNICIPAL DE EDUCACAO",
+    "modalidade": "Pregao Eletronico",
+    "licitacao": "000072/2025",
+    "processo": "007694/2025",
+    "objeto": "Contratacao de empresa especializada para servico de buffet, contemplando ainda servicos de organizacao/montagem do espaco no dia do evento dos profissionais da educacao, realizacao do preparo dos alimentos e afins  em atendimento as necessidades da Secretaria Municipal de Educacao, deste municipio",
+    "abertura": "2025-12-16T00:00:00",
+    "homologacao": "2025-12-19T00:00:00",
+    "conclusao": "2025-12-19T00:00:00",
+    "situacao": "Concluida",
+    "valor_homologado": 61300.000000000
+  },
+  {
+    "ano": "2025",
+    "mes": "12 - Dezembro",
+    "tipo_processo": "Licitacao",
+    "unidade_gestora": "FUNDO MUNICIPAL DE EDUCACAO",
+    "modalidade": "Concorrencia Eletronica",
+    "licitacao": "000010/2025",
+    "processo": "006406/2025",
+    "objeto": "Contratacao de Empresa especializada para execucao  dos servicos de fornceimento e instalacao de forros na EMEIF Vila Fartura.",
+    "abertura": "2025-11-28T00:00:00",
+    "homologacao": "2025-12-22T00:00:00",
+    "conclusao": "2025-12-22T00:00:00",
+    "situacao": "Concluida",
+    "valor_homologado": 21070.100000000
+  },
+  {
+    "ano": "2025",
+    "mes": "12 - Dezembro",
+    "tipo_processo": "Licitacao",
+    "unidade_gestora": "PREFEITURA MUNICIPAL DE SAO GABRIEL DA PALHA",
+    "modalidade": "Pregao Eletronico",
+    "licitacao": "000074/2025",
+    "processo": "007688/2025",
+    "objeto": "Constituicao de Ata de Registro de Precos, para futura e eventual Contratacao de empresa especializada para a prestacao de servicos e fornecimento de solucoes tecnologicas destinadas a locacao, instalacao e manutencao para modernizar e ampliar o servico de videomonitoramento e telecomunicacoes do municipio de Sao Gabriel da Palha, contemplando equipamentos softwares, servico de instalacao, manutencao e suporte tecnico.",
+    "abertura": "2025-12-18T00:00:00",
+    "homologacao": "2025-12-24T00:00:00",
+    "conclusao": "2025-12-24T00:00:00",
+    "situacao": "Concluida",
+    "valor_homologado": 9990000.000000000
+  },
+
+Contratos e Aditivos
+Contrato é o acordo ou ajuste em que as partes tenham interesses diversos, normalmente opostos, transferindo entre si algum direito ou se sujeitando a alguma obrigação. Por outro lado, o aditamento de contrato, ou aditivo, é um instrumento legal utilizado para proceder a alteração de dados seja em um contrato.
+Para mais informações de Contratos e Aditivos clique aqui.
+Ano: Formato:  
+ACESSO AOS DADOS
+
+Para acessar os dados da API, clique aqui ou copie e cole este endereço em seu navegador: saogabrieldapalha-es.portaltp.com.br/api/transparencia.asmx/json_contratos?ano=2025.
+
+ 
+
+EXPORTAR DADOS
+
+Ano 
+
+ 
+Formato 
+
+ 
+PARÂMETROS
+
+Obrigatórios
+
+Nome	Tipo	Descrição
+ano	texto	Ano do exercício a ser consultado.
+ 
+
+RETORNO
+
+Campos
+
+Nome	Tipo	Descrição
+ano	texto	Ano da ocorência.
+unidade_gestora	texto	Nome da unidade gestora que celebrou o contrato.
+contrato	texto	Número do Contrato/Aditivo
+ano_contrato	texto	Número do processo do contrato/aditivo
+processo	data	Data do contrato/aditivo.
+assinatura	data	Data em que foi assinado o contrato/aditivo.
+documento_favorecido	texto	Número do documento (CPF ou CNPJ) do favorecido no contrato/aditivo
+nome_favorecido	texto	Nome do favorecido no contrato/aditivo
+categoria	texto	Descrição da categoria do contrato/aditivo
+objeto	texto	Descrição do objeto do contrato/aditivo.
+situacao	texto	Estado do contrato/aditivo.
+valor	numérico	Valor do contrato/aditivo.
+SAÍDA
+
+[
+  {
+    "ano": "2025",
+    "unidade_gestora": "CAIXA DE ASSIST. DOS SERV. PUB. MUNIC. SAO GABRIEL",
+    "contrato": "000002/2025",
+    "ano_contrato": null,
+    "processo": "000285/2022",
+    "assinatura": "2025-03-03T00:00:00",
+    "documento_favorecido": "24.114.285/0001-50",
+    "nome_favorecido": "CLINICA MEDSAUDE SAO GABRIEL EIRELI ME",
+    "categoria": "Prestacao de Servicos",
+    "objeto": "Credenciamento de Pessoas Fisicas ou Juridicas, interessadas em firmar Contrato com a Caixa de Assistencia dos Servidores Publicos Municipais   CASP/SGP, para a prestacao de servicos medicos e hospitalares, exames e procedimentos, consistindo dos lotes a",
+    "situacao": "Vigente",
+    "valor": 50000.000000000
+  },
+  {
+    "ano": "2025",
+    "unidade_gestora": "CAIXA DE ASSIST. DOS SERV. PUB. MUNIC. SAO GABRIEL",
+    "contrato": "000004/2025",
+    "ano_contrato": null,
+    "processo": "000253/2025",
+    "assinatura": "2025-10-03T00:00:00",
+    "documento_favorecido": "62.879.353/0001-60",
+    "nome_favorecido": "R.L.L. HOLDING IMOBILIARIA E PARTICIPACOES LTDA",
+    "categoria": "LOCACAO DE BENS IMOVEIS",
+    "objeto": "LOCACAO E IMOVEL URBANO DESTINADO AO FUNCIONAMENTO DA CASP.",
+    "situacao": "Vigente",
+    "valor": 114000.000000000
+  }
+]
+
+Termos de Compromisso/Atas
+É o documento vinculativo, obrigacional, com característica de compromisso para futura contratação, em que se registram os preços, fornecedores, órgãos participantes e condições a serem praticadas, conforme as disposições contidas no instrumento convocatório e propostas apresentadas, de acordo com o Sistema de Registro de Preços previsto na Lei de Licitações, ou Lei Nº13.303/16, e regulamentado pelo Decreto Nº7.892/20133.
+Para mais informações de Termos de Compromisso/Atas clique aqui.
+Ano: Formato:  
+
+ACESSO AOS DADOS
+
+Para acessar os dados da API, clique aqui ou copie e cole este endereço em seu navegador: saogabrieldapalha-es.portaltp.com.br/api/transparencia.asmx/json_atas?ano=2025.
+
+ 
+
+EXPORTAR DADOS
+
+Ano 
+
+ 
+Formato 
+
+ 
+PARÂMETROS
+
+Obrigatórios
+
+Nome	Tipo	Descrição
+ano	texto	Ano do exercício a ser consultado.
+ 
+
+RETORNO
+
+Campos
+
+Nome	Tipo	Descrição
+ano	texto	Ano da ocorência.
+unidade_gestora	texto	Nome da unidade gestora que celebrou o termo de compromisso/ata.
+contrato	texto	Número do Contrato para o termo de compromisso/ata.
+processo	texto	Número do processo do termo de compromisso/ata.
+assinatura	data	Data em que foi assinado o termo de compromisso/ata.
+documento_favorecido	texto	Número do documento (CPF ou CNPJ) do favorecido no termo de compromisso/ata.
+nome_favorecido	texto	Nome do favorecido no termo de compromisso/ata.
+categoria	texto	Descrição da categoria do termo de compromisso/ata.
+objeto	texto	Descrição do objeto do termo de compromisso/ata.
+situacao	texto	Estado do termo de compromisso/ata.
+valor	numérico	Valor do termo de compromisso/ata.
+SAÍDA
+
+[
+  {
+    "ano": "2025",
+    "unidade_gestora": "FUNDO MUNICIPAL DE ASSISTENCIA SOCIAL",
+    "contrato": "000043",
+    "processo": "006828/2024",
+    "assinatura": "2025-03-12T00:00:00",
+    "documento_favorecido": "21.610.147/0001-73",
+    "nome_favorecido": "CDA COMERCIAL DISTRIBUIDORA ARMINI LTDA ME",
+    "categoria": "MATERIAL DE CONSUMO",
+    "objeto": "CONSTITUICAO DE REGISTRO DE PRECOS PARA FUTURA E EVENTUAL AQUISICAO DE ALIMENTOS PARA O ABRIGO LUZ, DESTE MUNICIPIO, NO SENTIDO DE ATENDER AS DEMANDAS DAS CRIANCAS ACOLHIDAS, EM SITUACAO DE VULNERABILIDADE SOCIAL",
+    "situacao": "VIGENTE",
+    "valor": 31097.500000000
+  },
+  {
+    "ano": "2025",
+    "unidade_gestora": "FUNDO MUNICIPAL DE ASSISTENCIA SOCIAL",
+    "contrato": "000144",
+    "processo": "004049/2025",
+    "assinatura": "2025-07-14T00:00:00",
+    "documento_favorecido": "51.499.102/0001-34",
+    "nome_favorecido": "ZENITH SOLUCOES E COMERCIO DE UTILIDADES LTDA",
+    "categoria": "Compras e Servicos",
+    "objeto": "Aquisicao de Material de Expediente para atendimento das demandas dos municipios associados ao CIM NOROESTE/ES",
+    "situacao": "VIGENTE",
+    "valor": 10938.400000000
+  }
+]
+
+Ordem de Compras
+Este documento é comumente utilizado para autorizar e formalizar o fornecimento de serviços e/ou materiais à empresa estatal. Seu principal objetivo é indicar os materiais e/ou serviços que serão utilizados para a execução de determinada atividade que será realizada, bem como seu quantitativo, quando couber.
+Para mais informações de Ordem de Compras clique aqui.
+Ano: Mês: Formato:  
+
+ACESSO AOS DADOS
+
+Para acessar os dados da API, clique aqui ou copie e cole este endereço em seu navegador: saogabrieldapalha-es.portaltp.com.br/api/transparencia.asmx/json_ordemcompras?ano=2025&mes=12.
+
+ 
+
+EXPORTAR DADOS
+
+Ano 
+
+ 
+Mês 
+
+ 
+Formato 
+
+ 
+PARÂMETROS
+
+Obrigatórios
+
+Nome	Tipo	Descrição
+ano	texto	Ano do exercício a ser consultado.
+mes	texto	Mês do exercício a ser consultado.
+ 
+
+RETORNO
+
+Campos
+
+Nome	Tipo	Descrição
+ano	texto	Ano da ocorência.
+mes	texto	Mês da ocorência.
+chave	texto	Chave de ligação entre a ordem de compra e os itens da ordem.
+unidade_gestora	texto	Nome da unidade gestora da ordem de compra.
+ordem_compra	texto	Número da ordem de compra.
+secretaria	texto	Nome da secretaria/órgão solicitante da ordem de compra.
+data_ordem	data	Data da ordem de compra.
+documento_favorecido	texto	Número do documento (CPF ou CNPJ) do favorecido da ordem de compra.
+nome_favorecido	texto	Nome do favorecido da ordem de compra.
+valor	numérico	Valor da ordem de compra.
+SAÍDA
+
+[
+  {
+    "ano": "2025",
+    "mes": "12 - Dezembro",
+    "chave": "00026472",
+    "unidade_gestora": "PREFEITURA MUNICIPAL DE SAO GABRIEL DA PALHA",
+    "ordem_compra": "000232/2025",
+    "secretaria": "PREFEITURA MUNICIPAL DE SAO GABRIEL DA PALHA",
+    "data_ordem": "2025-12-05T00:00:00",
+    "documento_favorecido": "10.673.605/0001-05",
+    "nome_favorecido": "REGINALDO PEREIRA LORENCINI ME",
+    "valor": 253650.000000000
+  },
+  {
+    "ano": "2025",
+    "mes": "12 - Dezembro",
+    "chave": "00026480",
+    "unidade_gestora": "PREFEITURA MUNICIPAL DE SAO GABRIEL DA PALHA",
+    "ordem_compra": "000245/2025",
+    "secretaria": "PREFEITURA MUNICIPAL DE SAO GABRIEL DA PALHA",
+    "data_ordem": "2025-12-24T00:00:00",
+    "documento_favorecido": "55.711.032/0001-97",
+    "nome_favorecido": "PADARIA BENINCA LTDA",
+    "valor": 370.500000000
+  }
+]
+
+
+
+Despesas
+Dispõe da aplicação de recursos da Administração Pública em empenhos, liquidações e pagamentos para custear serviços ou investir no desenvolvimento econômico.
+
+Empenhos e Favorecidos
+O empenho representa o primeiro estágio da despesa orçamentária. É registrado no momento da contratação do serviço, aquisição do material ou bem, obra e amortização da dívida. Segundo o art. 58 da Lei nº 4.320/1964, empenho é o ato emanado de autoridade competente que cria para o Estado obrigação de pagamento pendente ou não de implemento de condição. Consiste na reserva de dotação orçamentária para um fim específico.
+Para mais informações de Empenhos e Favorecidos clique aqui.
+Ano: Mês: Formato:  
+ 
+
+ACESSO AOS DADOS
+
+Para acessar os dados da API, clique aqui ou copie e cole este endereço em seu navegador: saogabrieldapalha-es.portaltp.com.br/api/transparencia.asmx/json_empenhos?ano=2025&mes=12.
+
+ 
+
+EXPORTAR DADOS
+
+Ano 
+
+ 
+Mês 
+
+ 
+Formato 
+
+ 
+PARÂMETROS
+
+Obrigatórios
+
+Nome	Tipo	Descrição
+ano	texto	Ano do exercício a ser consultado.
+mes	texto	Mês do exercício a ser consultado.
+ 
+
+RETORNO
+
+Campos
+
+Nome	Tipo	Descrição
+ano	texto	Ano da ocorência.
+mes	texto	Mês da ocorência.
+unidade_gestora	texto	Nome da unidade gestora do empenho.
+data	data	Data do empenho.
+especie	texto	Espécie do empenho.
+empenho	texto	Número do empenho.
+tipo_empenho	texto	Tipo do empenho.
+elemento_despesa	texto	Elemento da despesa para o empenho.
+subtitulo	texto	Subtítulo (centro de custo) do empenho.
+funcao	texto	Função do empenho.
+subfuncao	texto	Subfunção do empenho.
+programa	texto	Programa do empenho.
+fonte_recurso	texto	Fonte de recurso do empenho.
+grupo_despesa	texto	Grupo da despesa do empenho.
+documento_favorecido	texto	Número do documento (CPF ou CNPJ) do favorecido do empenho.
+nome_favorecido	texto	Nome do favorecido do empenho.
+valor	numérico	Valor do empenho.
+SAÍDA
+
+[
+  {
+    "ano": "2025",
+    "mes": "11 - Novembro",
+    "unidade_gestora": "FUNDO MUNICIPAL DE EDUCACAO",
+    "data": "2025-11-17T00:00:00",
+    "especie": "Original",
+    "empenho": "0001088/2025",
+    "tipo_empenho": "Ordinario",
+    "elemento_despesa": "33903016000 - MATERIAL DE EXPEDIENTE",
+    "subtitulo": "",
+    "funcao": "12 - Educacao",
+    "subfuncao": "365 - Educacao Infantil",
+    "programa": "5204 - GESTAO E MANUTENCAO DA EDUCACAO INFANTIL",
+    "fonte_recurso": "256900000001 - OUTRAS TRANSFERENCIAS DE RECURSOS DO FNDE - ETI, LEI Nº 14.640/2023, FOMENTO DE MATR. EM REDES E SISTEMAS DE ENSINO, PARA EDU",
+    "grupo_despesa": "33000000000 - OUTRAS DESPESAS CORRENTES",
+    "documento_favorecido": "09.317.494/0001-07",
+    "nome_favorecido": "SO CARTUCHOS LTDA",
+    "valor": 3681.000000000
+  },
+  {
+    "ano": "2025",
+    "mes": "11 - Novembro",
+    "unidade_gestora": "FUNDO MUNICIPAL DE EDUCACAO",
+    "data": "2025-11-17T00:00:00",
+    "especie": "Original",
+    "empenho": "0001087/2025",
+    "tipo_empenho": "Estimativo",
+    "elemento_despesa": "33904001000 - LOCACAO DE EQUIPAMENTOS DE TIC - ATIVOS DE REDE",
+    "subtitulo": "",
+    "funcao": "12 - Educacao",
+    "subfuncao": "365 - Educacao Infantil",
+    "programa": "5204 - GESTAO E MANUTENCAO DA EDUCACAO INFANTIL",
+    "fonte_recurso": "155000000000 - TRANSFERENCIA DO SALARIO EDUCACAO",
+    "grupo_despesa": "33000000000 - OUTRAS DESPESAS CORRENTES",
+    "documento_favorecido": "02.906.841/0001-98",
+    "nome_favorecido": "CIBOX COMERCIO E SERVICOS LTDA - EPP",
+    "valor": 10000.000000000
+  }
+]
+
+Liquidações e Favorecidos
+A liquidação é o segundo estágio da despesa orçamentária. Ela é, normalmente, processada pelas Unidades Gestoras ao receberem o objeto do empenho (o material, serviço, bem ou obra). Conforme previsto no art. 63 da Lei nº 4.320/1964, a liquidação consiste na verificação do direito adquirido pelo credor tendo por base os títulos e documentos comprobatórios do respectivo crédito e tem como objetivos: apurar a origem e o objeto do que se deve pagar; a importância exata a pagar; e a quem se deve pagar a importância, para extinguir a obrigação.
+Para mais informações de Liquidações e Favorecidos clique aqui.
+Ano: Mês: Formato:  
+
+ACESSO AOS DADOS
+
+Para acessar os dados da API, clique aqui ou copie e cole este endereço em seu navegador: saogabrieldapalha-es.portaltp.com.br/api/transparencia.asmx/json_liquidacoes?ano=2025&mes=12.
+
+ 
+
+EXPORTAR DADOS
+
+Ano 
+
+ 
+Mês 
+
+ 
+Formato 
+
+ 
+PARÂMETROS
+
+Obrigatórios
+
+Nome	Tipo	Descrição
+ano	texto	Ano do exercício a ser consultado.
+mes	texto	Mês do exercício a ser consultado.
+ 
+
+RETORNO
+
+Campos
+
+Nome	Tipo	Descrição
+ano	texto	Ano da ocorência.
+mes	texto	Mês da ocorência.
+unidade_gestora	texto	Nome da unidade gestora da liquidação.
+data	data	Data da liquidação.
+especie	texto	Espécie da liquidação.
+empenho	texto	Número do empenho da liquidação.
+liquidacao	texto	Número da liquidação.
+tipo_liquidacao	texto	Tipo da liquidação.
+elemento_despesa	texto	Elemento da despesa para liquidação.
+subtitulo	texto	Subtítulo (centro de custo) da liquidação.
+funcao	texto	Função da liquidação.
+subfuncao	texto	Subfunção da liquidação.
+programa	texto	Programa da liquidação.
+fonte_recurso	texto	Fonte de recurso da liquidação.
+grupo_despesa	texto	Grupo da despesa da liquidação.
+documento_favorecido	texto	Número do documento (CPF ou CNPJ) do favorecido da liquidação.
+nome_favorecido	texto	Nome do favorecido da liquidação.
+valor	numérico	Valor da liquidação.
+SAÍDA
+
+[
+  {
+    "ano": "2025",
+    "mes": "11 - Novembro",
+    "unidade_gestora": "FUNDO MUNICIPAL DE EDUCACAO",
+    "data": "2025-11-17T00:00:00",
+    "especie": "Original",
+    "empenho": "0001088/2025",
+    "liquidacao": "0001511/2025",
+    "tipo_liquidacao": "Orcamentaria",
+    "elemento_despesa": "33903016000 - MATERIAL DE EXPEDIENTE",
+    "subtitulo": "",
+    "funcao": "12 - Educacao",
+    "subfuncao": "365 - Educacao Infantil",
+    "programa": "5204 - GESTAO E MANUTENCAO DA EDUCACAO INFANTIL",
+    "fonte_recurso": "256900000001 - OUTRAS TRANSFERENCIAS DE RECURSOS DO FNDE - ETI, LEI Nº 14.640/2023, FOMENTO DE MATR. EM REDES E SISTEMAS DE ENSINO, PARA EDU",
+    "grupo_despesa": "33000000000 - OUTRAS DESPESAS CORRENTES",
+    "documento_favorecido": "09.317.494/0001-07",
+    "nome_favorecido": "SO CARTUCHOS LTDA",
+    "valor": 3681.000000000
+  },
+  {
+    "ano": "2025",
+    "mes": "11 - Novembro",
+    "unidade_gestora": "FUNDO MUNICIPAL DE EDUCACAO",
+    "data": "2025-11-17T00:00:00",
+    "especie": "Original",
+    "empenho": "0001087/2025",
+    "liquidacao": "0001510/2025",
+    "tipo_liquidacao": "Orcamentaria",
+    "elemento_despesa": "33904001000 - LOCACAO DE EQUIPAMENTOS DE TIC - ATIVOS DE REDE",
+    "subtitulo": "",
+    "funcao": "12 - Educacao",
+    "subfuncao": "365 - Educacao Infantil",
+    "programa": "5204 - GESTAO E MANUTENCAO DA EDUCACAO INFANTIL",
+    "fonte_recurso": "155000000000 - TRANSFERENCIA DO SALARIO EDUCACAO",
+    "grupo_despesa": "33000000000 - OUTRAS DESPESAS CORRENTES",
+    "documento_favorecido": "02.906.841/0001-98",
+    "nome_favorecido": "CIBOX COMERCIO E SERVICOS LTDA - EPP",
+    "valor": 1898.460000000
+  }
+]
+
+
+Pagamentos e Favorecidos
+O pagamento refere-se ao terceiro estágio da despesa orçamentária e será processada pela Unidade Gestora no momento da emissão do documento Ordem Bancária (OB) e documentos relativos a retenções de tributos, quando for o caso. O pagamento consiste na entrega de numerário ao credor e só pode ser efetuado após a regular liquidação da despesa. A Lei nº 4.320/1964, em seu art. 64, define ordem de pagamento como sendo o despacho exarado por autoridade competente, determinando que a despesa liquidada seja paga.
+Para mais informações de Pagamentos e Favorecidos clique aqui.
+Ano: Mês: Formato:  
+
+ACESSO AOS DADOS
+
+Para acessar os dados da API, clique aqui ou copie e cole este endereço em seu navegador: saogabrieldapalha-es.portaltp.com.br/api/transparencia.asmx/json_pagamentos?ano=2025&mes=12.
+
+ 
+
+EXPORTAR DADOS
+
+Ano 
+
+ 
+Mês 
+
+ 
+Formato 
+
+ 
+PARÂMETROS
+
+Obrigatórios
+
+ 
+
+RETORNO
+
+Campos
+
+SAÍDA
+
+[]
+
+Ordem Cronológica dos Pagamentos
+Ordens Cronológicas a Pagar
+Para mais informações de Ordem Cronológica dos Pagamentos clique aqui.
+Ano: Formato:  
+
+ACESSO AOS DADOS
+
+Para acessar os dados da API, clique aqui ou copie e cole este endereço em seu navegador: saogabrieldapalha-es.portaltp.com.br/api/transparencia.asmx/json_ordem_cronologica_a_pagar?ano=2025.
+
+ 
+
+EXPORTAR DADOS
+
+Ano 
+
+ 
+Formato 
+
+ 
+PARÂMETROS
+
+Obrigatórios
+
+Nome	Tipo	Descrição
+ano_documento	texto	Ano do exercício a ser consultado.
+ 
+
+RETORNO
+
+Campos
+
+Nome	Tipo	Descrição
+ano_documento	texto	Ano da ocorência.
+nom_contrato_tipo	texto	Tipo de contrato.
+nom_fonte_recurso_tce	texto	Fonte de Recurso.
+nro_ordem_fila	texto	Ordem da fila.
+nro_liquidacao	texto	Número da liquidação.
+dat_liquidacao	data	Data da liquidação.
+dat_liquidacao_vencimento	data	Data da liquidação vencimento.
+nro_empenho	texto	Número do empenho.
+nro_pagamento_ordem	texto	Número da ordem do pagamento.
+nom_pessoa	texto	Credor.
+sld_liquidacao_ordem_final	numérico	Saldo da liquidação.
+vlr_liquidacao	numérico	Valor da liquidação.
+nda_liquidacao	texto	Número do contrato.
+nda_licitacao	texto	Número da licitação.
+motivo_quebra_ordem_cronologica	texto	Motivo da quebra da ordem cronológica.
+SAÍDA
+
+[
+  {
+    "ano_documento": "2025",
+    "nom_contrato_tipo": "Contrato",
+    "nom_fonte_recurso_tce": "RECURSOS NAO VINCULADOS DE IMPOSTOS E TRANSFERENCIAS DE IMPOSTOS",
+    "nro_ordem_fila": 1,
+    "nro_liquidacao": "3156",
+    "dat_liquidacao": "2025-10-06T00:00:00",
+    "dat_liquidacao_vencimento": "2025-10-06T00:00:00",
+    "nro_empenho": "415",
+    "nro_pagamento_ordem": "",
+    "nom_pessoa": "LOCASIL LOCADORA EIRELI ME",
+    "sld_liquidacao_ordem_final": 2894.00,
+    "vlr_liquidacao": 2894.00,
+    "nda_liquidacao": null,
+    "nda_licitacao": "",
+    "motivo_quebra_ordem_cronologica": ""
+  },
+  {
+    "ano_documento": "2025",
+    "nom_contrato_tipo": "Contrato",
+    "nom_fonte_recurso_tce": "RECURSOS NAO VINCULADOS DE IMPOSTOS E TRANSFERENCIAS DE IMPOSTOS",
+    "nro_ordem_fila": 2,
+    "nro_liquidacao": "3145",
+    "dat_liquidacao": "2025-10-03T00:00:00",
+    "dat_liquidacao_vencimento": "2025-10-10T00:00:00",
+    "nro_empenho": "1073",
+    "nro_pagamento_ordem": "",
+    "nom_pessoa": "ASSOCIACAO DOS PEQUENOS AGRICULTORES DO ESTADO DO ESPIRITO SANTO",
+    "sld_liquidacao_ordem_final": 10834.30,
+    "vlr_liquidacao": 10834.30,
+    "nda_liquidacao": null,
+    "nda_licitacao": "",
+    "motivo_quebra_ordem_cronologica": ""
+  }
+]
+
+
+Programas, Projetos e Ações
+Os programas possuem escopo abrangente com o delineamento geral de diversos projetos a serem executados, o que traduz as estratégias para o alcance dos das metas estabelecidas. Já os projetos possuem escopo específico, têm custos e são restritos a um determinado período. Quando diversos projetos possuem o mesmo objetivo são agrupados em programas, possibilitando a obtenção de benefícios que não seriam alcançados se gerenciados isoladamente. Por fim, as ações representam o conjunto de atividades ou processos, que são os meios disponíveis ou atos de intervenção concretos, em um nível ainda mais focado de atuação necessário para a consecução do projeto. Uma vez encerrado o projeto e atingido seu objetivo, as ações tornam-se atividades ou processos rotineiros de operação ou manutenção.
+Para mais informações de Programas, Projetos e Ações clique aqui.
+Ano: Formato:  
+
+
+
+Despesas com Obras
+Refere-se ao terceiro estágio da despesa orçamentária e será processada pela Unidade Gestora no momento da emissão do documento Ordem Bancária (OB) e documentos relativos a retenções de tributos, quando for o caso. O pagamento consiste na entrega de numerário ao credor e só pode ser efetuado após a regular liquidação da despesa. A Lei nº 4.320/1964, em seu art. 64, define ordem de pagamento como sendo o despacho exarado por autoridade competente, determinando que a despesa liquidada seja paga.
+Para mais informações de Despesas com Obras clique aqui.
+Ano: Mês: Formato:  
+ 
+
+ACESSO AOS DADOS
+
+Para acessar os dados da API, clique aqui ou copie e cole este endereço em seu navegador: saogabrieldapalha-es.portaltp.com.br/api/transparencia.asmx/json_obras?ano=2025&mes=12.
+
+ 
+
+EXPORTAR DADOS
+
+Ano 
+
+ 
+Mês 
+
+ 
+Formato 
+
+ 
+PARÂMETROS
+
+Obrigatórios
+
+Nome	Tipo	Descrição
+ano	texto	Ano do exercício a ser consultado.
+mes	texto	Mês do exercício a ser consultado.
+ 
+
+RETORNO
+
+Campos
+
+Nome	Tipo	Descrição
+ano	texto	Ano da ocorência.
+mes	texto	Mês da ocorência.
+unidade_gestora	texto	Nome da unidade gestora da despesa com obras.
+data	data	Data da despesa com obras.
+especie	texto	Espécie da despesa com obras.
+pagamento	texto	Número do pagamento da despesa com obras.
+tipo_pagamento	texto	Tipo do pagamento da despesa com obras.
+elemento_despesa	texto	Elemento da despesa para obras.
+subtitulo	texto	Subtítulo (centro de custo) da despesa com obras.
+documento_favorecido	texto	Número do documento (CPF ou CNPJ) do favorecido com despesa com obras.
+nome_favorecido	texto	Nome do favorecido com despesa com obras.
+valor	numérico	Valor da despesa com obras.
+SAÍDA
+
+[
+  {
+    "ano": "2025",
+    "mes": "11 - Novembro",
+    "unidade_gestora": "FUNDO MUNICIPAL DE SAUDE",
+    "data": "2025-11-03T00:00:00",
+    "especie": "Original",
+    "pagamento": "",
+    "tipo_pagamento": "",
+    "elemento_despesa": "33903039000 - MATERIAL P/ MANUTENCAO DE VEICULOS",
+    "subtitulo": "",
+    "documento_favorecido": "52.954.144/0001-80",
+    "nome_favorecido": "RAVI E-COMMERCE LTDA",
+    "valor": 4160.000000000
+  },
+  {
+    "ano": "2025",
+    "mes": "11 - Novembro",
+    "unidade_gestora": "FUNDO MUNICIPAL DE SAUDE",
+    "data": "2025-11-03T00:00:00",
+    "especie": "Original",
+    "pagamento": "",
+    "tipo_pagamento": "",
+    "elemento_despesa": "33903039000 - MATERIAL P/ MANUTENCAO DE VEICULOS",
+    "subtitulo": "",
+    "documento_favorecido": "55.695.599/0001-17",
+    "nome_favorecido": "MAGBA E-COMMERCE LTDA",
+    "valor": 15650.200000000
+  }
+]
+
+
+Despesas com Diárias
+Refere-se ao terceiro estágio da despesa orçamentária e será processada pela Unidade Gestora no momento da emissão do documento Ordem Bancária (OB) e documentos relativos a retenções de tributos, quando for o caso. O pagamento consiste na entrega de numerário ao credor e só pode ser efetuado após a regular liquidação da despesa. A Lei nº 4.320/1964, em seu art. 64, define ordem de pagamento como sendo o despacho exarado por autoridade competente, determinando que a despesa liquidada seja paga.
+Para mais informações de Despesas com Diárias clique aqui.
+Ano: Mês: Formato:  
+Pessoal
+Dispõe das informações dos servidores da Administração Pública, demonstrando sua situação funcional, cargo, lotação e demonstrativo das suas remunerações.
+
+ACESSO AOS DADOS
+
+Para acessar os dados da API, clique aqui ou copie e cole este endereço em seu navegador: saogabrieldapalha-es.portaltp.com.br/api/transparencia.asmx/json_diarias?ano=2025&mes=12.
+
+ 
+
+EXPORTAR DADOS
+
+Ano 
+
+ 
+Mês 
+
+ 
+Formato 
+
+ 
+PARÂMETROS
+
+Obrigatórios
+
+Nome	Tipo	Descrição
+ano	texto	Ano do exercício a ser consultado.
+mes	texto	Mês do exercício a ser consultado.
+ 
+
+RETORNO
+
+Campos
+
+Nome	Tipo	Descrição
+ano	texto	Ano da ocorência.
+mes	texto	Mês da ocorência.
+unidade_gestora	texto	Nome da unidade gestora da despesa com diária.
+data	data	Data da despesa com diária.
+especie	texto	Espécie da despesa com diária.
+pagamento	texto	Número do pagamento da despesa com diária.
+tipo_pagamento	texto	Tipo do pagamento da despesa com diária.
+elemento_despesa	texto	Elemento da despesa para diária.
+subtitulo	texto	Subtítulo (centro de custo) da despesa com diária.
+documento_favorecido	texto	Número do documento (CPF ou CNPJ) do favorecido com despesa com diária.
+nome_favorecido	texto	Nome do favorecido com despesa com diária.
+valor	numérico	Valor da despesa com diária.
+SAÍDA
+
+[
+  {
+    "ano": "2025",
+    "mes": "11 - Novembro",
+    "unidade_gestora": "FUNDO MUNICIPAL DE SAUDE",
+    "data": "2025-11-06T00:00:00",
+    "especie": "Original",
+    "pagamento": "0003279/2025",
+    "tipo_pagamento": "Orcamentario",
+    "elemento_despesa": "33901414000 - DIARIAS NO PAIS",
+    "subtitulo": "",
+    "documento_favorecido": "***.099.307-**",
+    "nome_favorecido": "MARCELLA FERREIRA ROSSONI ROCHA",
+    "valor": 39000.000000000
+  },
+  {
+    "ano": "2025",
+    "mes": "11 - Novembro",
+    "unidade_gestora": "FUNDO MUNICIPAL DE ASSISTENCIA SOCIAL",
+    "data": "2025-11-07T00:00:00",
+    "especie": "Original",
+    "pagamento": "0001657/2025",
+    "tipo_pagamento": "Orcamentario",
+    "elemento_despesa": "33901414000 - DIARIAS NO PAIS",
+    "subtitulo": "",
+    "documento_favorecido": "***.398.677-**",
+    "nome_favorecido": "FERNANDA DA MACENA",
+    "valor": 40.000000000
+  }
+]
+
+
+Servidores
+Exibe a remuneração mensal dos servidores ativos ou inativos de forma individualizada.
+Para mais informações de Servidores clique aqui.
+Ano: Mês: Formato:  
+Cargos Comissionados
+Cargo público criado por lei, com denominação própria e vencimento pago pelos cofres públicos, que compreende o conjunto de atribuições e responsabilidades previstas na estrutura organizacional atribuídas a um servidor, cuja investidura não depende de aprovação em concurso público para provimento em comissão, sendo de livre nomeação e exoneração.
+Para mais informações de Cargos Comissionados clique aqui.
+Ano: Mês: Formato:  
+ACESSO AOS DADOS
+
+Para acessar os dados da API, clique aqui ou copie e cole este endereço em seu navegador: saogabrieldapalha-es.portaltp.com.br/api/transparencia.asmx/json_servidores?ano=2025&mes=11.
+
+ 
+
+EXPORTAR DADOS
+
+Ano 
+
+ 
+Mês 
+
+ 
+Formato 
+
+ 
+PARÂMETROS
+
+Obrigatórios
+
+Nome	Tipo	Descrição
+ano	texto	Ano do exercício a ser consultado.
+mes	texto	Mês do exercício a ser consultado.
+ 
+
+RETORNO
+
+Campos
+
+Nome	Tipo	Descrição
+ano	texto	Ano da ocorência.
+mes	texto	Mês da ocorência.
+unidade_gestora	texto	Nome da unidade gestora do servidor.
+documento	texto	Número do documento (CPF ou CNPJ) do servidor.
+nome	texto	Nome do servidor.
+data_admissao	texto	Data da admissão do servidor.
+data_demissao	texto	Data da demissão do servidor.
+situacao	texto	Situação do servidor.
+matricula	texto	Matrícula do servidor.
+profissao	texto	Profissão do servidor.
+cargo	texto	Cargo do servidor.
+regime	texto	Regime do servidor.
+centro_custo	texto	Centro de custo para o servidor.
+horas_semanais	texto	Carga horaria semanal do servidor.
+horas_mensais	texto	Carga horaria mensal do servidor.
+jornada	texto	Jornada diária do servidor.
+local	texto	Local de alocação do servidor.
+secretaria	texto	Secretaria de alocação do servidor.
+divisao	texto	Divisão de alocação do servidor.
+secao	texto	Seção de alocação do servidor.
+ato_nomeacao	texto	Ato de nomeação do servidor.
+data_nomecao	data	Data da nomeação do servidor.
+numero_concurso	texto	Numero do concurso do servidor.
+nome_concurso	texto	Nome do concurso do servidor.
+data_concurso	texto	Data do concurso do servidor.
+data_homologacao	texto	Data de homologação do concurso do servidor.
+numero_lei	texto	Número da lei do concurso do servidor.
+nome_padrao	texto	Nome do padrão de remuneração do servidor.
+valor_padrao	numérico	Valor padrão da remuneração.
+nome_rem01	texto	nome remuneração 01.
+valor_rem01	numérico	Valor remuneração 01.
+nome_rem02	texto	nome remuneração 02.
+valor_rem02	numérico	Valor remuneração 02.
+nome_rem03	texto	nome remuneração 03.
+valor_rem03	numérico	Valor remuneração 03.
+nome_rem04	texto	nome remuneração 04.
+valor_rem04	numérico	Valor remuneração 04.
+nome_rem05	texto	nome remuneração 05.
+valor_rem05	numérico	Valor remuneração 05.
+nome_rem06	texto	nome remuneração 06.
+valor_rem06	numérico	Valor remuneração 06.
+nome_rem07	texto	nome remuneração 07.
+valor_rem07	numérico	Valor remuneração 07.
+nome_rem08	texto	nome remuneração 08.
+valor_rem08	numérico	Valor remuneração 08.
+nome_rem09	texto	nome remuneração 09.
+valor_rem09	numérico	Valor remuneração 09.
+nome_rem10	texto	nome remuneração 10.
+valor_rem10	numérico	Valor remuneração 10.
+nome_rem11	texto	nome remuneração 11.
+valor_rem11	numérico	Valor remuneração 11.
+nome_rem12	texto	nome remuneração 12.
+valor_rem12	numérico	Valor remuneração 12.
+nome_rem13	texto	nome remuneração 13.
+valor_rem13	numérico	Valor remuneração 13.
+nome_rem14	texto	nome remuneração 14.
+valor_rem14	numérico	Valor remuneração 14.
+nome_rem15	texto	nome remuneração 15.
+valor_rem15	numérico	Valor remuneração 15.
+nome_rem16	texto	nome remuneração 16.
+valor_rem16	numérico	Valor remuneração 16.
+nome_rem17	texto	nome remuneração 17.
+valor_rem17	numérico	Valor remuneração 17.
+nome_rem18	texto	nome remuneração 18.
+valor_rem18	numérico	Valor remuneração 18.
+nome_rem19	texto	nome remuneração 19.
+valor_rem19	numérico	Valor remuneração 19.
+nome_rem20	texto	nome remuneração 20.
+valor_rem20	numérico	Valor remuneração 20.
+nome_rem21	texto	nome remuneração 21.
+valor_rem21	numérico	Valor remuneração 21.
+nome_rem22	texto	nome remuneração 22.
+valor_rem22	numérico	Valor remuneração 22.
+nome_rem23	texto	nome remuneração 23.
+valor_rem23	numérico	Valor remuneração 23.
+nome_rem24	texto	nome remuneração 24.
+valor_rem24	numérico	Valor remuneração 24.
+nome_rem25	texto	nome remuneração 25.
+valor_rem25	numérico	Valor remuneração 25.
+nome_rem26	texto	nome remuneração 26.
+valor_rem26	numérico	Valor remuneração 26.
+nome_rem27	texto	nome remuneração 27.
+valor_rem27	numérico	Valor remuneração 27.
+nome_rem28	texto	nome remuneração 28.
+valor_rem28	numérico	Valor remuneração 28.
+nome_rem29	texto	nome remuneração 29.
+valor_rem29	numérico	Valor remuneração 29.
+nome_rem30	texto	nome remuneração 30.
+valor_rem30	numérico	Valor remuneração 30.
+nome_rem31	texto	nome remuneração 31.
+valor_rem31	numérico	Valor remuneração 31.
+nome_rem32	texto	nome remuneração 32.
+valor_rem32	numérico	Valor remuneração 32.
+nome_rem33	texto	nome remuneração 33.
+valor_rem33	numérico	Valor remuneração 33.
+nome_rem34	texto	nome remuneração 34.
+valor_rem34	numérico	Valor remuneração 34.
+nome_rem35	texto	nome remuneração 35.
+valor_rem35	numérico	Valor remuneração 35.
+nome_rem36	texto	nome remuneração 36.
+valor_rem36	numérico	Valor remuneração 36.
+nome_rem37	texto	nome remuneração 37.
+valor_rem37	numérico	Valor remuneração 37.
+nome_rem38	texto	nome remuneração 38.
+valor_rem38	numérico	Valor remuneração 38.
+nome_rem39	texto	nome remuneração 39.
+valor_rem39	numérico	Valor remuneração 39.
+nome_rem40	texto	nome remuneração 40.
+valor_rem40	numérico	Valor remuneração 40.
+SAÍDA
+
+[
+  {
+    "ano": "2025",
+    "mes": "11",
+    "unidade_gestora": "Prefeitura Municipal de Sao Gabriel da Palha",
+    "documento": "***.325.407-**",
+    "nome": "ROGERS LUCIANO BORGO MASSUCATTI",
+    "data_admissao": "1990-08-08T00:00:00",
+    "data_demissao": null,
+    "situacao": "Ativo",
+    "matricula": "000407",
+    "profissao": "TECNICO EM CONTABILIDADE - EST",
+    "cargo": "CONTROLADOR(A) GERAL DO MUNICIPIO - COM",
+    "regime": "Estatutario",
+    "centro_custo": "SISTEMA DE CONTROLE INTERNO",
+    "horas_semanais": "180:00",
+    "horas_mensais": "180:00",
+    "jornada": "06:00:00",
+    "local": "CONTROLADORIA GERAL",
+    "secretaria": "SISTEMA DE CONTROLE INTERNO",
+    "divisao": "SISTEMA DE CONTROLE INTERNO",
+    "secao": "SISTEMA DE CONTROLE INTERNO",
+    "ato_nomeacao": "1658",
+    "data_nomecao": "1990-08-08T00:00:00",
+    "numero_concurso": "",
+    "nome_concurso": "",
+    "data_concurso": "",
+    "data_homologacao": "",
+    "numero_lei": "",
+    "nome_padrao": "0-7-R",
+    "valor_padrao": 5590.040000000,
+    "nome_rem01": "Salario Base",
+    "valor_rem01": 5590.040000000,
+    "nome_rem02": "Ferias",
+    "valor_rem02": 0.000000000,
+    "nome_rem03": "13 Salario",
+    "valor_rem03": 0.000000000,
+    "nome_rem04": "Outras Remuneracoes",
+    "valor_rem04": 17977.790000000,
+    "nome_rem05": "Salario Bruto",
+    "valor_rem05": 23567.830000000,
+    "nome_rem06": "Desconto Previdencia",
+    "valor_rem06": 1652.450000000,
+    "nome_rem07": "Desconto IRRF",
+    "valor_rem07": 1920.500000000,
+    "nome_rem08": "Outros Descontos",
+    "valor_rem08": 2639.960000000,
+    "nome_rem09": "Total  descontos",
+    "valor_rem09": 6212.910000000,
+    "nome_rem10": "Salario Liquido",
+    "valor_rem10": 17354.920000000,
+    "nome_rem11": null,
+    "valor_rem11": 0.000000000,
+    "nome_rem12": null,
+    "valor_rem12": 0.000000000,
+    "nome_rem13": null,
+    "valor_rem13": 0.000000000,
+    "nome_rem14": null,
+    "valor_rem14": 0.000000000,
+    "nome_rem15": null,
+    "valor_rem15": 0.000000000,
+    "nome_rem16": null,
+    "valor_rem16": 0.000000000,
+    "nome_rem17": null,
+    "valor_rem17": 0.000000000,
+    "nome_rem18": null,
+    "valor_rem18": 0.000000000,
+    "nome_rem19": null,
+    "valor_rem19": 0.000000000,
+    "nome_rem20": null,
+    "valor_rem20": 0.000000000,
+    "nome_rem21": null,
+    "valor_rem21": 0.000000000,
+    "nome_rem22": null,
+    "valor_rem22": 0.000000000,
+    "nome_rem23": null,
+    "valor_rem23": 0.000000000,
+    "nome_rem24": null,
+    "valor_rem24": 0.000000000,
+    "nome_rem25": null,
+    "valor_rem25": 0.000000000,
+    "nome_rem26": null,
+    "valor_rem26": 0.000000000,
+    "nome_rem27": null,
+    "valor_rem27": 0.000000000,
+    "nome_rem28": null,
+    "valor_rem28": 0.000000000,
+    "nome_rem29": null,
+    "valor_rem29": 0.000000000,
+    "nome_rem30": null,
+    "valor_rem30": 0.000000000,
+    "nome_rem31": null,
+    "valor_rem31": 0.000000000,
+    "nome_rem32": null,
+    "valor_rem32": 0.000000000,
+    "nome_rem33": null,
+    "valor_rem33": 0.000000000,
+    "nome_rem34": null,
+    "valor_rem34": 0.000000000,
+    "nome_rem35": null,
+    "valor_rem35": 0.000000000,
+    "nome_rem36": null,
+    "valor_rem36": 0.000000000,
+    "nome_rem37": null,
+    "valor_rem37": 0.000000000,
+    "nome_rem38": null,
+    "valor_rem38": 0.000000000,
+    "nome_rem39": null,
+    "valor_rem39": 0.000000000,
+    "nome_rem40": null,
+    "valor_rem40": 0.000000000
+  },
+  {
+    "ano": "2025",
+    "mes": "11",
+    "unidade_gestora": "Prefeitura Municipal de Sao Gabriel da Palha",
+    "documento": "***.260.467-**",
+    "nome": "JACSON LANE ZANOTELLI",
+    "data_admissao": "1995-07-03T00:00:00",
+    "data_demissao": null,
+    "situacao": "Ativo",
+    "matricula": "000618",
+    "profissao": "AUXILIAR ADMINISTRATIVO",
+    "cargo": "DIRETOR DE DEPARTAMENTO - COM",
+    "regime": "Estatutario",
+    "centro_custo": "SEC.MUN.DE FINANCAS",
+    "horas_semanais": "180:00",
+    "horas_mensais": "180:00",
+    "jornada": "06:00:00",
+    "local": "DEPARTAMENTO DE RECEITA E FISC",
+    "secretaria": "SEC.MUN.DE FINANCAS",
+    "divisao": "SEC.MUN.DE FINANCAS",
+    "secao": "FINANCAS - SECRETARIA",
+    "ato_nomeacao": "2838",
+    "data_nomecao": "1995-06-29T00:00:00",
+    "numero_concurso": "",
+    "nome_concurso": "",
+    "data_concurso": "",
+    "data_homologacao": "",
+    "numero_lei": "",
+    "nome_padrao": "0-3-M",
+    "valor_padrao": 1873.680000000,
+    "nome_rem01": "Salario Base",
+    "valor_rem01": 1873.680000000,
+    "nome_rem02": "Ferias",
+    "valor_rem02": 0.000000000,
+    "nome_rem03": "13 Salario",
+    "valor_rem03": 0.000000000,
+    "nome_rem04": "Outras Remuneracoes",
+    "valor_rem04": 7256.140000000,
+    "nome_rem05": "Salario Bruto",
+    "valor_rem05": 9129.820000000,
+    "nome_rem06": "Desconto Previdencia",
+    "valor_rem06": 731.480000000,
+    "nome_rem07": "Desconto IRRF",
+    "valor_rem07": 740.790000000,
+    "nome_rem08": "Outros Descontos",
+    "valor_rem08": 1908.480000000,
+    "nome_rem09": "Total  descontos",
+    "valor_rem09": 3380.750000000,
+    "nome_rem10": "Salario Liquido",
+    "valor_rem10": 5749.070000000,
+    "nome_rem11": null,
+    "valor_rem11": 0.000000000,
+    "nome_rem12": null,
+    "valor_rem12": 0.000000000,
+    "nome_rem13": null,
+    "valor_rem13": 0.000000000,
+    "nome_rem14": null,
+    "valor_rem14": 0.000000000,
+    "nome_rem15": null,
+    "valor_rem15": 0.000000000,
+    "nome_rem16": null,
+    "valor_rem16": 0.000000000,
+    "nome_rem17": null,
+    "valor_rem17": 0.000000000,
+    "nome_rem18": null,
+    "valor_rem18": 0.000000000,
+    "nome_rem19": null,
+    "valor_rem19": 0.000000000,
+    "nome_rem20": null,
+    "valor_rem20": 0.000000000,
+    "nome_rem21": null,
+    "valor_rem21": 0.000000000,
+    "nome_rem22": null,
+    "valor_rem22": 0.000000000,
+    "nome_rem23": null,
+    "valor_rem23": 0.000000000,
+    "nome_rem24": null,
+    "valor_rem24": 0.000000000,
+    "nome_rem25": null,
+    "valor_rem25": 0.000000000,
+    "nome_rem26": null,
+    "valor_rem26": 0.000000000,
+    "nome_rem27": null,
+    "valor_rem27": 0.000000000,
+    "nome_rem28": null,
+    "valor_rem28": 0.000000000,
+    "nome_rem29": null,
+    "valor_rem29": 0.000000000,
+    "nome_rem30": null,
+    "valor_rem30": 0.000000000,
+    "nome_rem31": null,
+    "valor_rem31": 0.000000000,
+    "nome_rem32": null,
+    "valor_rem32": 0.000000000,
+    "nome_rem33": null,
+    "valor_rem33": 0.000000000,
+    "nome_rem34": null,
+    "valor_rem34": 0.000000000,
+    "nome_rem35": null,
+    "valor_rem35": 0.000000000,
+    "nome_rem36": null,
+    "valor_rem36": 0.000000000,
+    "nome_rem37": null,
+    "valor_rem37": 0.000000000,
+    "nome_rem38": null,
+    "valor_rem38": 0.000000000,
+    "nome_rem39": null,
+    "valor_rem39": 0.000000000,
+    "nome_rem40": null,
+    "valor_rem40": 0.000000000
+  }
+]
