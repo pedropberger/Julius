@@ -8,6 +8,26 @@ Esse projeto começou uma iniciativa dos servidores da Unidade de Inovação do 
 
 Por ser ferramenta de aprendizado e por utilizar exclusivamente dados públicos governamentais, optamos recomeçar o projeto um iniciativa aberta, recomeçando o desenvolvimento dele de forma desvinculada de qualquer instituição e disponibilizando os códigos aqui no Github. A ideia é a partir do que já funciona, testar, aprimorar, criar e aperfeiçoar os códigos e funções com técnicas de Engenharia de Dados, Inteligência Artificial e boas prátivas de desenvolvimento. Por isso também o Readme e toda documentação (até os comentários dos códigos) estarem em inglês como lingua padrão, aprender inglês sempre é bom.
 
+# Estrutura do Projeto
+
+O projeto está organizado nos seguintes diretórios:
+
+- `modules/`: Contém os módulos específicos para cada fornecedor de dados (empresa).
+  - `{empresa}/`: Cada empresa tem seu próprio módulo com seus próprios dados e métodos.
+    - `__init__.py`: Transforma o diretório em um módulo Python.
+    - `agents.md`: Documentação específica para a coleta de dados da empresa.
+    - `api_metodos/`: Métodos da API e outras informações relevantes.
+    - `prefeituras.csv`: Lista de municípios que utilizam a plataforma da empresa.
+    - `tests/`: Diretório para testes específicos deste módulo.
+- `data/`: Contém os dados extraídos em formato Parquet.
+  - `parquet/`: Diretório raiz para os arquivos Parquet.
+    - `{municipio}/`: Cada município tem seu próprio diretório.
+      - `{ano}/`: Cada ano tem seu próprio diretório.
+        - `{endpoint}.parquet`: Arquivo com os dados do endpoint.
+- `pilot/`: Contém os arquivos do projeto piloto.
+- `main.py`: Script principal do projeto.
+- `README-ptbr.md`: Este arquivo.
+
 # Como funciona?
 
 Julius funciona como um algoritmo de automação que captura dados dos Portais da Transparência por meio de suas APIs.

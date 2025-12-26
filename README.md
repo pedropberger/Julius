@@ -10,6 +10,26 @@ This project started as an initiative of the Innovation Unit servers of the Publ
 
 Because it is a learning tool and exclusively uses public government data, we chose to restart the project as an open initiative, starting its development in an unlinked manner from any institution and making the codes available here on Github. The idea is to test, improve, create and refine codes and functions with Data Engineering techniques, Artificial Intelligence, and good development practices based on what already works. That's why the Readme and all documentation (even the code comments) are in English as the standard language - learning English is always a good thing.
 
+# Project Structure
+
+The project is organized into the following directories:
+
+- `modules/`: Contains the specific modules for each data provider (company).
+  - `{company}/`: Each company has its own module with its own data and methods.
+    - `__init__.py`: Makes the directory a Python module.
+    - `agents.md`: Specific documentation for the data collection of the company.
+    - `api_metodos/`: API methods and other relevant information.
+    - `prefeituras.csv`: List of municipalities that use the company's platform.
+    - `tests/`: Directory for specific tests for this module.
+- `data/`: Contains the extracted data in Parquet format.
+  - `parquet/`: Root directory for the Parquet files.
+    - `{municipality}/`: Each municipality has its own directory.
+      - `{year}/`: Each year has its own directory.
+        - `{endpoint}.parquet`: File with the data from the endpoint.
+- `pilot/`: Contains the pilot project files.
+- `main.py`: Main script of the project.
+- `README.md`: This file.
+
 # How it works?
 
 Julius works as an automation algorithm that captures data from Transparency Portals through their APIs.
