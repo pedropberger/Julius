@@ -53,13 +53,13 @@ Contém a documentação completa dos endpoints disponíveis, incluindo:
 - **Endpoint:** `/transparencia.asmx/json_licitacoes`
 - **Parâmetros obrigatórios:**
   - `ano` (texto): Ano do exercício (ex: "2025")
-  - `mes` (texto): Mês do exercício (ex: "12")
+  - `mes` (texto): Mês do exercício (ex: "7", sem zero à esquerda)
 - **Parâmetros opcionais:**
   - `extra` (boolean): Mostrar vencedores (default: False)
-  - `situacao` (texto): Filtrar por situação (default: ".")
+  - `situacao` (texto): Filtrar por situação (default: "")
 - **Exemplo de URL:**
   ```
-  https://afonsoclaudio-es.portaltp.com.br/api/transparencia.asmx/json_licitacoes?ano=2025&mes=12&extra=False&situacao=.
+  https://afonsoclaudio-es.portaltp.com.br/api/transparencia.asmx/json_licitacoes?ano=2025&mes=7&extra=False&situacao=
   ```
 - **Campos retornados:** ano, mes, tipo_processo, unidade_gestora, modalidade, licitacao, processo, objeto, abertura, homologacao, conclusao, situacao, valor_homologado
 

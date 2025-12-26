@@ -28,9 +28,9 @@ def get_data(url, endpoint, year):
     # The 'licitacoes' endpoint requires the 'mes' parameter
     if "licitacoes" in endpoint:
         for month in range(1, 13):
-            params["mes"] = str(month).zfill(2)
+            params["mes"] = str(month) # Use non-zero-padded month
             params["extra"] = "False"
-            params["situacao"] = "."
+            params["situacao"] = "" # Use empty string for situacao
             try:
                 response = requests.get(f"{url}{endpoint}", params=params)
                 response.raise_for_status()
