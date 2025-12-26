@@ -13,10 +13,23 @@ ENDPOINTS = {
     "contratos": "transparencia.asmx/json_contratos",
 }
 DATA_DIR = "pilot/data/parquet"
+CONTROL_FILE = "pilot/data/control.json"
 
 def get_prefeituras():
     """Reads the prefeituras.csv file and returns a pandas DataFrame."""
     return pd.read_csv("modules/portaltp/prefeituras.csv")
+
+def read_control_file():
+    """Reads the control file and returns a dictionary."""
+    if not os.path.exists(CONTROL_FILE):
+        return {}
+    with open(CONTROL_FILE, "r") as f:
+        return json.load(f)
+
+def write_control_file(data):
+    """Writes a dictionary to the control file."""
+    with open(CONTROL_FILE, "w") as f:
+        json.dump(data, f, indent=4)
 
 def get_data(url, endpoint, year, month=None):
     """Fetches data from the API and returns a list of dictionaries."""
@@ -36,72 +49,79 @@ def get_data(url, endpoint, year, month=None):
         data = json.loads(json_string)
         return data
     except requests.exceptions.RequestException as e:
-        print(f"Error fetching data from {url}{endpoint} for year {year} and month {month}: {e}")
+        # print(f"Error fetching data from {url}{endpoint} for year {year} and month {month}: {e}")
         return None
     except (ValueError, ET.ParseError):
-        print(f"Could not decode JSON from {url}{endpoint} for year {year} and month {month}. Response text: {response.text}")
+        # print(f"Could not decode JSON from {url}{endpoint} for year {year} and month {month}. Response text: {response.text}")
         return None
 
 
-def save_to_parquet(data, municipality, year, endpoint_name, month=None):
-    """Saves a list of dictionaries to a Parquet file in a structured directory."""
+def save_to_parquet(data, municipality_name, prefeitura_name, endpoint_name):
+    """Appends a list of dictionaries to a Parquet file for the municipality."""
     if not data:
-        # print(f"No data to save for {municipality} - {endpoint_name} for year {year} and month {month}")
         return
 
     df = pd.DataFrame(data)
+    df["prefeitura"] = prefeitura_name
     
     # Create directory structure
-    output_dir = os.path.join(DATA_DIR, municipality, year)
-    os.makedirs(output_dir, exist_ok=True)
+    os.makedirs(DATA_DIR, exist_ok=True)
     
     # Save to Parquet
-    if month:
-        parquet_filename = os.path.join(output_dir, f"{endpoint_name}_{month}.parquet")
+    parquet_filename = os.path.join(DATA_DIR, f"{municipality_name}_{endpoint_name}.parquet")
+    if os.path.exists(parquet_filename):
+        existing_df = pd.read_parquet(parquet_filename)
+        combined_df = pd.concat([existing_df, df], ignore_index=True)
+        combined_df.to_parquet(parquet_filename, engine='pyarrow')
     else:
-        parquet_filename = os.path.join(output_dir, f"{endpoint_name}.parquet")
-    df.to_parquet(parquet_filename)
-    # print(f"Data saved to {parquet_filename}")
-    return True
+        df.to_parquet(parquet_filename, engine='pyarrow')
 
 def main():
     """Main function for the pilot project."""
     prefeituras = get_prefeituras()
     target_prefeituras = prefeituras[prefeituras["municipio"].isin(MUNICIPALITIES)]
 
-    results = {}
+    control_data = read_control_file()
 
     for _, prefeitura in target_prefeituras.iterrows():
         municipio_name = prefeitura["municipio"].replace(' ', '_')
-        results[municipio_name] = {}
+        prefeitura_name = prefeitura["prefeitura"]
         url = prefeitura["url"]
+        
+        if municipio_name not in control_data:
+            control_data[municipio_name] = {}
+
         for endpoint_name, endpoint_path in ENDPOINTS.items():
-            results[municipio_name][endpoint_name] = {"2024": [], "2025": []}
+            if endpoint_name not in control_data[municipio_name]:
+                control_data[municipio_name][endpoint_name] = {}
+
             print(f"Fetching {endpoint_name} for {municipio_name}...")
             for year in YEARS:
+                if year not in control_data[municipio_name][endpoint_name]:
+                    control_data[municipio_name][endpoint_name][year] = []
+
                 if "licitacoes" in endpoint_name:
                     for month in range(1, 13):
-                        data = get_data(url, endpoint_path, year, month)
-                        if save_to_parquet(data, municipio_name, year, endpoint_name, month):
-                            results[municipio_name][endpoint_name][year].append(month)
+                        if month not in control_data[municipio_name][endpoint_name][year]:
+                            data = get_data(url, endpoint_path, year, month)
+                            if data:
+                                save_to_parquet(data, municipio_name, prefeitura_name, endpoint_name)
+                                control_data[municipio_name][endpoint_name][year].append(month)
+                                print(f"  Data found for {year}/{month}")
+                            else:
+                                print(f"  No data for {year}/{month}")
                 else:
-                    data = get_data(url, endpoint_path, year)
-                    if save_to_parquet(data, municipio_name, year, endpoint_name):
-                        results[municipio_name][endpoint_name][year].append(0) # 0 represents the whole year
-    
-    print("\n--- Summary ---")
-    for municipio, endpoints in results.items():
-        print(f"\n{municipio}:")
-        for endpoint, years in endpoints.items():
-            print(f"  {endpoint}:")
-            for year, months in years.items():
-                if months:
-                    if 0 in months:
-                        print(f"    {year}: Success")
-                    else:
-                        print(f"    {year}: Months with data: {sorted(months)}")
-                else:
-                    print(f"    {year}: No data found")
+                    if 0 not in control_data[municipio_name][endpoint_name][year]: # 0 represents the whole year
+                        data = get_data(url, endpoint_path, year)
+                        if data:
+                            save_to_parquet(data, municipio_name, prefeitura_name, endpoint_name)
+                            control_data[municipio_name][endpoint_name][year].append(0)
+                            print(f"  Data found for {year}")
+                        else:
+                            print(f"  No data for {year}")
+
+    write_control_file(control_data)
+    print("\n--- Pilot finished ---")
 
 
 if __name__ == "__main__":

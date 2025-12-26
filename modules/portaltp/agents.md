@@ -277,25 +277,38 @@ Cada registro coletado deve incluir:
 }
 ```
 
-### 4.2 Estrutura de Armazenamento
+### 4.2 Armazenamento e Controle
 
-A opção preferencial é a utilização de arquivos Parquet, que oferecem boa compressão e performance de leitura. Os arquivos serão armazenados em uma estrutura de diretórios organizada da seguinte forma:
+Os dados coletados são armazenados em arquivos Parquet, um para cada município e endpoint, no diretório `data/parquet/`. Cada arquivo contém uma coluna `prefeitura` para identificar o município.
 
+Para evitar a re-execução de tarefas já concluídas, é utilizado um arquivo de controle em `data/control.json`. Este arquivo registra os anos e meses que já foram processados para cada município e endpoint.
+
+**Estrutura de Diretórios:**
 ```
 data/
-└── parquet/
-    └── {municipio}/
-        └── {ano}/
-            ├── licitacoes.parquet
-            ├── contratos.parquet
-            └── ...
+├── parquet/
+│   ├── afonso_claudio_licitacoes.parquet
+│   ├── afonso_claudio_contratos.parquet
+│   └── ...
+└── control.json
 ```
 
-Onde:
-- `data/parquet`: Diretório raiz para os arquivos Parquet.
-- `{municipio}`: Nome do município (e.g., `afonso_claudio`).
-- `{ano}`: Ano da extração (e.g., `2025`).
-- `{endpoint}.parquet`: Arquivo com os dados do endpoint (e.g., `licitacoes.parquet`).
+**Arquivo de Controle (`control.json`):**
+```json
+{
+    "afonso_claudio": {
+        "licitacoes": {
+            "2024": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+            "2025": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+        },
+        "contratos": {
+            "2024": [0],
+            "2025": [0]
+        }
+    }
+}
+```
+Onde `[0]` em `contratos` indica que o endpoint foi executado para o ano inteiro.
 
 
 ### 4.3 Normalização de Dados
