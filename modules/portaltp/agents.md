@@ -270,17 +270,103 @@ data/
     afonso_claudio_2025.parquet
 ```
 
-**Opção 2: Banco de dados relacional**
+**Opção 2: Banco de dados relacional (SQLite)**
+
+A opção preferencial é a utilização de um banco de dados relacional como o SQLite, que é simples de usar e não requer um servidor dedicado. A estrutura abaixo foi projetada para integrar dados de diferentes portais, mantendo a consistência.
+
 ```sql
+CREATE TABLE prefeituras (
+    id INTEGER PRIMARY KEY,
+    nome TEXT NOT NULL,
+    municipio TEXT NOT NULL,
+    empresa TEXT NOT NULL,
+    url TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 CREATE TABLE licitacoes (
-    id SERIAL PRIMARY KEY,
-    prefeitura_id INT,
-    municipio VARCHAR(100),
-    ano VARCHAR(4),
-    mes VARCHAR(2),
+    id INTEGER PRIMARY KEY,
+    prefeitura_id INTEGER,
+    ano INTEGER,
+    mes INTEGER,
     tipo_processo TEXT,
-    -- ... outros campos ...
-    data_coleta TIMESTAMP,
+    unidade_gestora TEXT,
+    modalidade TEXT,
+    licitacao TEXT,
+    processo TEXT,
+    objeto TEXT,
+    abertura TIMESTAMP,
+    homologacao TIMESTAMP,
+    conclusao TIMESTAMP,
+    situacao TEXT,
+    valor_homologado REAL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (prefeitura_id) REFERENCES prefeituras(id)
+);
+
+CREATE TABLE contratos (
+    id INTEGER PRIMARY KEY,
+    prefeitura_id INTEGER,
+    ano INTEGER,
+    unidade_gestora TEXT,
+    contrato TEXT,
+    ano_contrato INTEGER,
+    processo TEXT,
+    assinatura TIMESTAMP,
+    documento_favorecido TEXT,
+    nome_favorecido TEXT,
+    categoria TEXT,
+    objeto TEXT,
+    situacao TEXT,
+    valor REAL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (prefeitura_id) REFERENCES prefeituras(id)
+);
+
+CREATE TABLE pagamentos (
+    id INTEGER PRIMARY KEY,
+    prefeitura_id INTEGER,
+    ano INTEGER,
+    mes INTEGER,
+    unidade_gestora TEXT,
+    data TIMESTAMP,
+    especie TEXT,
+    empenho TEXT,
+    liquidacao TEXT,
+    tipo_liquidacao TEXT,
+    elemento_despesa TEXT,
+    subtitulo TEXT,
+    funcao TEXT,
+    subfuncao TEXT,
+    programa TEXT,
+    fonte_recurso TEXT,
+    grupo_despesa TEXT,
+    documento_favorecido TEXT,
+    nome_favorecido TEXT,
+    valor REAL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (prefeitura_id) REFERENCES prefeituras(id)
+);
+
+CREATE TABLE ordem_cronologica (
+    id INTEGER PRIMARY KEY,
+    prefeitura_id INTEGER,
+    ano_documento INTEGER,
+    nom_contrato_tipo TEXT,
+    nom_fonte_recurso_tce TEXT,
+    nro_ordem_fila INTEGER,
+    nro_liquidacao TEXT,
+    dat_liquidacao TIMESTAMP,
+    dat_liquidacao_vencimento TIMESTAMP,
+    nro_empenho TEXT,
+    nro_pagamento_ordem TEXT,
+    nom_pessoa TEXT,
+    sld_liquidacao_ordem_final REAL,
+    vlr_liquidacao REAL,
+    nda_liquidacao TEXT,
+    nda_licitacao TEXT,
+    motivo_quebra_ordem_cronologica TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (prefeitura_id) REFERENCES prefeituras(id)
 );
 ```
