@@ -56,6 +56,34 @@ The data contained in portals is structured (salary tables, payments to third pa
 
 # Documentation
 
+# How to run
+
+To run the data extraction, you need to have Python 3 and the required packages installed.
+
+## Installing dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+## Running the application
+
+To run the data extraction for the `portaltp` module, simply run the `main.py` script:
+
+```bash
+python3 main.py
+```
+
+## Configuring the execution
+
+You can configure the years and months to be extracted by editing the `modules/portaltp/config.py` file.
+
+## Resulting data
+
+The extracted data will be saved in the `data/portaltp/` directory in Parquet format. Each municipality and endpoint will have its own file.
+
+A control file named `control_portaltp.json` will also be created in the `data/` directory to keep track of the executed tasks.
+
 # How to collaborate
 
 ## Collaborators

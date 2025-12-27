@@ -1,5 +1,9 @@
+from modules.portaltp import run as run_portaltp
+
 def main():
-    return print('Project organized in modules. Each company is a module with its own APIs and methods.')
+    print("Starting data extraction...")
+    run_portaltp.run()
+    print("Data extraction finished.")
 
 if __name__ == "__main__":
     main()
