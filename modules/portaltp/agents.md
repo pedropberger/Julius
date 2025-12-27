@@ -62,6 +62,24 @@ Contém a documentação completa dos endpoints disponíveis, incluindo:
   https://afonsoclaudio-es.portaltp.com.br/api/transparencia.asmx/json_licitacoes?ano=2025&mes=7&extra=False&situacao=
   ```
 
+## Teste de APIs
+
+Para verificar quais APIs estão funcionando para cada município, você pode executar o script `test_apis.py` localizado neste módulo.
+
+```bash
+python3 modules/portaltp/test_apis.py
+```
+
+Este script irá gerar um arquivo `api_test_results.csv` na raiz do projeto, contendo uma tabela com os resultados dos testes para cada município e endpoint. A tabela terá a seguinte estrutura:
+
+| municipio | url | licitacoes | contratos | empenhos | ... |
+|---|---|---|---|---|---|
+| afonso claudio | ... | Success | Success | Success | ... |
+| água doce do norte | ... | HTTP Error: 404 | HTTP Error: 404 | ... | ... |
+| ... | ... | ... | ... | ... | ... |
+
+Com base neste arquivo, você pode identificar quais APIs precisam de revisão manual ou se a URL no arquivo `prefeituras.csv` precisa ser atualizada.
+
 ## Disponibilidade dos Dados
 
 Com base em um piloto executado em 26/12/2025, a disponibilidade dos dados para os municípios de Afonso Cláudio e São Gabriel da Palha é a seguinte:
