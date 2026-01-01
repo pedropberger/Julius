@@ -201,3 +201,4 @@ cython_debug/
 data/
 old/
 portal_lists/
+*.parquet
